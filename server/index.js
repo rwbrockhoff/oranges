@@ -6,7 +6,15 @@ require('dotenv').config()
 
 const app = express()
 
+const controller = require('./controller')
+
 const port = process.env.SERVER_PORT
+
+/////MIDDLEWARE//////
+
+app.use(bodyParser.json())
+
+////END MIDDLEWARE////
 
 
 massive(process.env.CONNECTION_STRING).then(db=>{
@@ -16,4 +24,13 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         console.log(`listening on port ${port}`)
     })
 })
+
+
+////ENDPOINTS/////
+
+//Receives a number on the body and returns that number of 'answer' cards
+app.post('/api/getacard', controller.getACard)
+
+//Returns one 'question' card
+app.get('/api/getqcard', controller.getQCard)
 
