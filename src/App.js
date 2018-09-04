@@ -10,7 +10,7 @@ class App extends Component {
         <h1>oranges to oranges </h1>
         </div>
         <div className="content">
-        <h1>Welcome to our App!</h1>
+        <h1>Welcome to our App! :)</h1>
         </div>
       </div>
     );
