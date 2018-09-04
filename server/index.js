@@ -10,6 +10,12 @@ const controller = require('./controller')
 
 const port = process.env.SERVER_PORT
 
+/////MIDDLEWARE//////
+
+app.use(bodyParser.json())
+
+////END MIDDLEWARE////
+
 
 massive(process.env.CONNECTION_STRING).then(db=>{
     app.set('db',db)
@@ -20,7 +26,11 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 })
 
 
-////Endpoints/////
-app.get('/api/getacard', controller.getACard)
+////ENDPOINTS/////
+
+//Receives a number on the body and returns that number of 'answer' cards
+app.post('/api/getacard', controller.getACard)
+
+//Returns one 'question' card
 app.get('/api/getqcard', controller.getQCard)
 

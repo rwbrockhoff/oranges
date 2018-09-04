@@ -1,2 +1,1 @@
-select * from question 
-where id = 7
+select * from question
