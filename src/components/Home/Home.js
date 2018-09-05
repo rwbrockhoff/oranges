@@ -16,6 +16,6 @@ export default class Home extends Component {
         <button className='green'>Join Game</button>
         </div>
       </div>
-    )
+    );
   }
 }
