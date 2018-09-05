@@ -8,7 +8,7 @@ const app = express()
 
 const controller = require('./controller')
 
-const port = process.env.SERVER_PORT
+const port = process.env.PORT
 
 /////MIDDLEWARE//////
 
@@ -23,13 +23,13 @@ app.use(session({
 ////END MIDDLEWARE////
 
 
-// massive(process.env.CONNECTION_STRING).then(db=>{
-//     app.set('db',db)
+massive(process.env.CONNECTION_STRING).then(db=>{
+    app.set('db',db)
     
     app.listen(port, ()=>{
         console.log(`listening on port ${port}`)
     })
-// })
+})
 
 
 ////ENDPOINTS/////
