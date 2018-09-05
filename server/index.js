@@ -23,13 +23,13 @@ app.use(session({
 ////END MIDDLEWARE////
 
 
-// massive(process.env.CONNECTION_STRING).then(db=>{
-//     app.set('db',db)
+massive(process.env.CONNECTION_STRING).then(db=>{
+    app.set('db',db)
     
     app.listen(port, ()=>{
         console.log(`listening on port ${port}`)
     })
-// })
+})
 
 
 ////ENDPOINTS/////

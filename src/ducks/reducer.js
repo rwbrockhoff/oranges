@@ -9,11 +9,18 @@ const initialState = {
 }
 
 const STOREQCARD = 'STOREQCARD';
+const STOREACARD = 'STOREACARD';
 
 export const storeQCard = (card) => ({
   type: STOREQCARD,
   payload: card
 })
+
+export const storeACard = (card) => ({
+  type: STOREACARD,
+  payload: card
+})
+
 
 
 export default (state = initialState, action) => {
@@ -21,6 +28,9 @@ export default (state = initialState, action) => {
 
   case STOREQCARD:
     return Object.assign({}, state, {qCard: action.payload})
+
+  case STOREACARD:
+    return Object.assign({}, state, {aCards: action.payload})
 
   default:
     return state
