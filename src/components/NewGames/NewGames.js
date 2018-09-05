@@ -54,7 +54,14 @@ class NewGames extends Component {
 
     createUser(){
       // console.log(this.state.input)
-      socket.emit('add-user', {userName: this.state.input, room:this.props.room})
+      let names = this.props.users.map(element => {
+        return element.user
+      })
+      if(names.indexOf(this.state.input) === -1){
+        socket.emit('add-user', {userName: this.state.input, room:this.props.room})
+      } else {
+        alert('already used ya idiot')
+      }
     }
 
   render(props) {
