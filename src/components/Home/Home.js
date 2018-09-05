@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import './Home.css'
+
+
 export default class Home extends Component {
   render() {
     return (
@@ -9,11 +12,11 @@ export default class Home extends Component {
         </div>
 
         <div className="box">
-        <button className='green'>New Game</button>
+        <Link to="/New-Game"><button className='green'>New Game</button></Link>
         </div>
 
         <div className="box">
-        <button className='green'>Join Game</button>
+        <Link to="/Join-Game" ><button className='green'>Join Game</button></Link>
         </div>
       </div>
     );
