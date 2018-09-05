@@ -9,11 +9,11 @@ const app = express()
 const port = process.env.SERVER_PORT
 
 
-massive(process.env.CONNECTION_STRING).then(db=>{
-    app.set('db',db)
+// massive(process.env.CONNECTION_STRING).then(db=>{
+//     app.set('db',db)
     
     app.listen(port, ()=>{
         console.log(`listening on port ${port}`)
     })
-})
+// })
 
