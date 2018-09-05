@@ -1,18 +1,25 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 import './NewGames.css'
 
-export default class NewGames extends Component {
+class NewGames extends Component {
     constructor(){
         super()
         this.state = {
-            input: ''
+            input: '',
+            roomId: null
         }
     }
-  render() {
+    componentDidMount(props){
+      this.setState({
+        roomId: this.props.room
+      })
+    }
+  render(props) {
     return (
       <div className="newgames">
         <div className="roomid">
-        <h1>Room ID: frolick</h1>
+        <h1>Room ID: {this.state.roomId}</h1>
         </div>
         {/* When we pull in users, we'll want to map over that array here instead of a static set of divs. Just for visual example. Please use classnames to maintain styling.  */}
         <div className="userbox">
@@ -35,3 +42,10 @@ export default class NewGames extends Component {
     )
   }
 }
+
+function mapStateToProps(state){
+  return {
+    room: state.room
+  }
+}
+export default connect(mapStateToProps)(NewGames);
