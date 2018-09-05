@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
+div.Game-App {
+    background: #fc4d4d;
+    width: 411px;
+}
 div.game {
   height: 100vh;
   display: flex;
@@ -33,4 +37,19 @@ div.Acard {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -40px;
+}
+@media only screen and  (min-width: 1100px) {
+    .Game-App {
+
+    }
+    div.Acard {
+        height: 49vh;
+        width: 100%;
+        padding: 10px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -40px;
+      }
 }

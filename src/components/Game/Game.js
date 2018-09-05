@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Game.css';
 
+import Acard from '../Acard/Acard';
+
 export default class Game extends Component {
     render() {
         return (
@@ -13,7 +15,7 @@ export default class Game extends Component {
                     <div className="border"></div>
 
                     <div className="Acard">
-                        {/* Import A Card Component */}
+                        <Acard />
                     </div>
 
                 </div>
