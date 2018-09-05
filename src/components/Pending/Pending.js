@@ -7,6 +7,7 @@ import { PacmanLoader } from 'react-spinners';
 const override2 = css`
     display: block;
     margin: 0 auto;
+    padding-right: 100px;
     border-color: red;
     padding-top: 0px;
 `;
@@ -26,11 +27,13 @@ export default class Pending extends Component {
                         className={override2}
                         sizeUnit={"px"}
                         size={50}
-                        color={'#f2e609'}
+                        color={'#F3CA40'}
                         loading={this.state.loading}
                     />
                 </div>
+                <div className='Pending-Text'>
                 <h2><strong>Waiting for other Players...</strong></h2>
+                </div>
             </div>
         );
     }
