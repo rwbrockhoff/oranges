@@ -5,7 +5,16 @@ export default class Game extends Component {
   render() {
     return (
       <div className="game">
-        <h1>hello</h1>
+
+        <div className="Qcard">
+          {/* Import Q Card Component */}
+        </div>
+        <div className="border"></div>
+
+        <div className="Acard">
+            {/* Import A Card Component */}
+        </div>
+
       </div>
     )
   }
