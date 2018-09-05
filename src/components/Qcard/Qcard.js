@@ -23,7 +23,7 @@ class Qcard extends Component {
           )
       })
     return (
-      <div className='qcard-container' >
+      <div>
           {displayQCard}
       </div>
     )
