@@ -5,12 +5,19 @@ const initialState = {
     aCard: [],
     aCards: [],
     sCards: [],
-    qCard: {}
+    qCard: []
 }
+
+const STOREQCARD = 'STOREQCARD';
+
+export const storeQCard = (card) => ({
+  type: STOREQCARD,
+  payload: card
+})
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
-
 
   default:
     return state
