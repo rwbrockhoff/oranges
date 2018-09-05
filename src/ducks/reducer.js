@@ -10,7 +10,11 @@ const initialState = {
 }
 
 const STOREQCARD = 'STOREQCARD';
+<<<<<<< HEAD
 const STOREACARD = 'STOREACARD';
+=======
+const STOREACARD = 'STOREACARD'
+>>>>>>> master
 const ADD_ROOM = "ADD_ROOM";
 
 export const storeQCard = (card) => ({
