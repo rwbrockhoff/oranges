@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
 
-// import Acard from './components/Acard/Acard';
+import Acard from './components/Acard/Acard';
 import EndGame from './components/Endgame/Endgame';
 import EndRound from './components/Endround/Endround';
 import Game from './components/Game/Game';
@@ -23,5 +23,6 @@ export default (
         <Route component={Pending} path='/Pending' />
         <Route component={EndRound} path='/End-Round' />
         <Route component={EndGame} path='End-Game' />
+        <Route component={Acard} path='/Acard' />
     </Switch>
 );

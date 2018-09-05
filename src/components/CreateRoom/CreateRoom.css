@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
-div.App {
+div.createRoom {
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -47,14 +47,14 @@ button.green:hover {
 }
 
 input {
-  width: 75%;
-  height: 30px;
-  padding: 10px 0px;
-  font-size: 1.5em;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  border: 2px solid rgb(232, 232, 232);
-  text-align: center;  
+    width: 75%;
+    height: 30px;
+    padding: 10px 0px;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(232, 232, 232);
+    text-align: center;  
 }
 
 input:focus {
