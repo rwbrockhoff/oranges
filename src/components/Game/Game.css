@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+div.game {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #000;
+  font-family: 'Open Sans';
+}
+
+div.Qcard {
+  height: 49vh;
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+div.border {
+  height: 2vh;
+  width: 100%;
+  background: #fc4d4d;
+}
+
+div.Acard {
+  height: 49vh;
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

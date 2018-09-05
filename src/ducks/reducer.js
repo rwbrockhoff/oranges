@@ -19,9 +19,6 @@ export const storeQCard = (card) => ({
 export default (state = initialState, action) => {
   switch (action.type) {
 
-  case STOREQCARD:
-    return Object.assign({}, state, {qCard: action.payload})
-
   default:
     return state
   }
