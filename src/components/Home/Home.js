@@ -12,7 +12,7 @@ export default class Home extends Component {
         </div>
 
         <div className="box">
-        <Link to="/New-Game"><button className='green'>New Game</button></Link>
+        <Link to="/Create-Room"><button className='green'>New Game</button></Link>
         </div>
 
         <div className="box">

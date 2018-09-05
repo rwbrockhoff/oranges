@@ -11,6 +11,7 @@ import JoinGame from './components/JoinGame/JoinGame';
 import Loading from './components/Loading/Loading';
 import NewGame from './components/NewGames/NewGames';
 import Pending from './components/Pending/Pending';
+import CreateRoom from './components/CreateRoom/CreateRoom';
 // import Qcard from './components/Qcard/Qcard';
 
 export default (
@@ -22,6 +23,7 @@ export default (
         <Route component={Game} path='/Game' />
         <Route component={Pending} path='/Pending' />
         <Route component={EndRound} path='/End-Round' />
-        <Route component={EndGame} path='End-Game' />
+        <Route component={EndGame} path='/End-Game' />
+        <Route component={CreateRoom} path='/Create-Room'/>
     </Switch>
 );
