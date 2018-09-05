@@ -36,15 +36,34 @@ massive(process.env.CONNECTION_STRING).then(db=>{
     io.on('connection', socket => {
         console.log('user joined!')
 
+        socket.on('disconnect', function(){
+            console.log('user left :(')
+        })
+
         socket.on('join-room', data => {
             socket.join(data.room)
-            io.to(data.room).emit('new-player', {
+            socket.emit('new-player', {
                 message: 'new player!'
+            })
+            socket.in(data.room).broadcast.emit('get-me-players')
+        
+        })
+
+        socket.on('here-are-players', data =>{
+            console.log(data, 'the players')
+            io.emit('add-players', {data})
+        })
+
+        socket.on('add-user', data =>{
+            console.log(data.userName)
+            io.in(data.room).emit('user-added', {
+                user : data.userName
             })
         })
     })
 
 })
+
 
 /////////////
 
