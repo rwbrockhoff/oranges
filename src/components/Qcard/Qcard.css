@@ -1,11 +1,10 @@
-
 .qcard{
     background-color: black;
     color: white;
     text-align: center;
-    border-radius: 8px;
-    width: 80%;
-    height: 40vh;
+    border-radius: 15px;
+    width: 75%;
+    height: 20vh;
     margin: auto;
-    padding: 5px;
+    padding: 5px 25px;
 }
