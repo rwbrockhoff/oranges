@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+div.newgames {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fc4d4d;
+  color: #ffffff;
+  font-family: 'Open Sans';
+}
+
+div.box {
+  width: 80%;
+  padding: 60px 0px;
+  margin-top: 50px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 10px 10px 93px -33px #000000bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.green {
+  background: #2bd73f;
+  color: white;
+  padding: 10px 20px;
+  width: 80%;
+  font-size: 2em;
+  border-radius: 10px;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  outline: none;
+
+}
+
+button.green:hover {
+  background: #15bf29;
+}
+
+div.userinput {
+    padding: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+    background: white;
+    position: absolute;
+    bottom: 18vh;
+    box-shadow: 10px 10px 93px -33px #000000bf;
+}
+
+input {
+    width: 75%;
+    height: 30px;
+    font-size: 1.5em;
+    border: 3px solid gray;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+input:focus {
+    outline: none;
+}
+
+div.roomid {
+    height: 7vh;
+    position: absolute;
+    top: 2vh;
+}
+
+div.footer {
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button.ready {
+    padding: 10px 10px;
+    width: 30%;
+    font-size: 1.6em;
+    border-radius: 10px;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    outline: none;
+}
+
+button.ready.g {
+    background: #2bd73f;
+    color: white;
+}
+
+button.ready.g:hover {
+    background: #15bf29;
+}
+
+button.ready.r {
+    background: white;
+    color: #fc4d4d;
+}
+
+button.ready.r:hover {
+    background: #e2e2e2;
+}
+
+div.userbox {
+    position: absolute;
+    top: 100px;
+    height: 295px;
+    
+    overflow-y: scroll;
+    
+}
+div.userbubble {
+    width: 80vw;
+    height: 5vh;
+    padding: 5px 5px;
+    background: white;
+    color: black;
+    font-size: 1.3em;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 10px 10px 74px -9px rgba(0,0,0,0.60);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: scroll;
+    margin: 10px;
+}
+
+
