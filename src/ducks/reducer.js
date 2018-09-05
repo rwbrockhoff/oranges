@@ -29,6 +29,11 @@ export default (state = initialState, action) => {
     case ADD_ROOM:
       const {room} = action.payload
       return Object.assign({}, state, {room})
+  case STOREQCARD:
+    return Object.assign({}, state, {qCard: action.payload})
+
+  case STOREACARD:
+    return Object.assign({}, state, {aCards: action.payload})
 
   default:
     return state
