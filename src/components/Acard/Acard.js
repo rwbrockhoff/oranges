@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import './Acard.css';
 import axios from 'axios';
 import {storeACard} from '../../ducks/reducer'
 import {connect} from 'react-redux'
+
+import Coverflow from 'react-coverflow';
+import { StyleRoot } from 'radium';
 
 class Acard extends Component {
 
@@ -10,19 +14,37 @@ class Acard extends Component {
             this.props.storeACard(results.data);
         })
     }
-
   render() {
       let displayACards = this.props.aCards.map((e,i) => {
           return(
-              <div key={i}>
+              <div key={i} id='Acards'>
                 <h2>{e[0].name}</h2>
                 <h4>{e[0].description}</h4>
               </div>
           )
       })
     return (
-      <div>
-        {displayACards}
+      <div className='Acard-App'>
+          <StyleRoot>
+                    <Coverflow
+                        displayQuantityOfSide={1}
+                        infiniteScroll
+                        enableHeading
+                        media={{
+                            '@media (max-width: 900px)': {
+                                width: '411px',
+                                height: '375px',
+                                // marginTop: '330px'
+                            },
+                            '@media (min-width: 1000px)': {
+                                width: '60vw',
+                                height: '350px'
+                            }
+                        }}
+                    >
+                        {displayACards}
+                    </Coverflow>
+                </StyleRoot>
       </div>
     )
   }
