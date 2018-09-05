@@ -7,11 +7,12 @@ import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
 import {HashRouter} from 'react-router-dom'
 import store from './store'
+import Game from './components/Game/Game'
 
 ReactDOM.render(
     <Provider store={store}>
         <HashRouter>
-            <App />
+            <Game />
         </HashRouter>
     </Provider>
 , document.getElementById('root'));

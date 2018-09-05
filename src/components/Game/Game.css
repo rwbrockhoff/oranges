@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+div.game {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #fc4d4d;
+  color: #ffffff;
+  font-family: 'Open Sans';
+}
