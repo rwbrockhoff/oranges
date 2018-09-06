@@ -87,6 +87,7 @@ class NewGames extends Component {
         
         </div>
         <div className="userinput">
+        <img src={`https://api.adorable.io/avatars/69/${this.state.input}.png`} />
         <input onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
