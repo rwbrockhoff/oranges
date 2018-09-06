@@ -7,6 +7,7 @@ import { css } from 'react-emotion';
 import { GridLoader } from 'react-spinners';
 import {connect} from 'react-redux';
 import io from 'socket.io-client';
+import {addPlayer} from '../../ducks/reducer'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -61,7 +62,7 @@ class Loading extends Component {
     }
     
     async componentDidUpdate(prevProps){
-        if(this.props.readyPlayers !== prevProps.readyPlayers){
+        if(this.props.readyPlayers !== prevProps.readyPlayers || this.props.users !== prevProps.users){
             await this.setState({propsReadyPlayers: this.props.readyPlayers})
             let tempArray = []
             this.props.users.map((e,i) => {
@@ -119,4 +120,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(Loading);
+export default connect(mapStateToProps,{addPlayer})(Loading);
