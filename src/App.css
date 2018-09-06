@@ -1,0 +1,6 @@
+div.App {
+    outline-style: none;
+}
+div.App:focus {
+    outline-style: none;
+}

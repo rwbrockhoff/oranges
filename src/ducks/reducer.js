@@ -18,6 +18,11 @@ export const storeQCard = (card) => ({
   payload: card
 })
 
+export const storeACard = (card) => ({
+  type: STOREACARD,
+  payload: card
+})
+
 export const addRoom = (room) => ({
   type: ADD_ROOM,
   payload: room
