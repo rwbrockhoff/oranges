@@ -6,6 +6,8 @@ div.Game-App {
 }
 div.game {
   height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +17,7 @@ div.game {
 }
 
 div.Qcard {
-  height: 49vh;
+  height: 50vh;
   width: 100%;
   padding: 10px 10px;
   display: flex;
@@ -24,14 +26,8 @@ div.Qcard {
 
 }
 
-div.border {
-  height: 2vh;
-  width: 100%;
-  background: #fc4d4d;
-}
-
 div.Acard {
-  height: 49vh;
+  height: 50vh;
   width: 100%;
   padding: 10px 10px;
   display: flex;

@@ -13,13 +13,19 @@ class Acard extends Component {
         axios.post('/api/getacard', {numOfCards: 5}).then(results => {
             this.props.storeACard(results.data);
         })
+       var middle = document.getElementsByClassName('3')
+       
     }
   render() {
       let displayACards = this.props.aCards.map((e,i) => {
           return(
-              <div key={i} id='Acards'>
+
+              <div class={i} key={e[0].id} id='Acards' 
+              role="menuitem"
+              tabIndex={i}>
                 <h2>{e[0].name}</h2>
                 <h4>{e[0].description}</h4>
+                
               </div>
           )
       })
@@ -27,9 +33,14 @@ class Acard extends Component {
       <div className='Acard-App'>
           <StyleRoot>
                     <Coverflow
+                        width='100%'
+                        height='100%'
+                        outline-style='none'
                         displayQuantityOfSide={1}
                         infiniteScroll
-                        enableHeading
+                        enableHeading={true}
+                        active={3}
+
                         media={{
                             '@media (max-width: 900px)': {
                                 width: '411px',

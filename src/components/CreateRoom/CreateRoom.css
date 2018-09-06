@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
 
 div.createRoom {
   height: 100vh;
@@ -8,7 +8,7 @@ div.createRoom {
   flex-direction: column;
   background: #fc4d4d;
   color: #ffffff;
-  font-family: 'Open Sans';
+  font-family: 'Gudea', sans-serif;
 }
 
 div.logo {
@@ -17,7 +17,7 @@ div.logo {
 }
 
 div.box {
-  width: 80%;
+  width: 90%;
   padding: 60px 0px;
   margin-top: -50px;
   background: white;
@@ -30,24 +30,26 @@ div.box {
 }
 
 button.green {
-  background: #2bd73f;
+  background: #3ECA3E;
   color: white;
   padding: 5px 20px;
-  width: 80%;
+  width: 90%;
   font-size: 2em;
   border-radius: 10px;
-  font-family: 'Open Sans';
+  font-family: 'Gudea', sans-serif;
   font-weight: 600;
   outline: none;
-
+  margin-top: 5px;
 }
 
 button.green:hover {
   background: #15bf29;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
 input {
-    width: 75%;
+    width: 85%;
     height: 30px;
     padding: 10px 0px;
     font-size: 1.5em;

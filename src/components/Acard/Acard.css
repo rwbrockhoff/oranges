@@ -1,17 +1,33 @@
 .Acard-App {
-
+  max-width: 100vw;
+  outline-style: none;
 }
 #Acards {
     color: #333;
-    background-color: aliceblue;
+    background-color: white;
+    border-radius: 20px;
     width: 137px;
-    height: 175px;
+    height: 160px;
     text-align: left;
+    padding: 0px 10px;
+    padding-top: 10px;
+    box-shadow: 10px 10px 93px -33px #000000bf;
+    outline: none;
+}
+
+.coverflow__text__TAisD {
+    width: 0;
+    height: 0;
+    left: 300vw !important;
+}
+.coverflow__figure__zEOhf {
+    box-shadow: none !important;
 }
 #Acards h2 {
     font-size: 16px;
     text-align: center;
-    text-decoration: underline;
+    margin-bottom: -10px;
+
 }
 #Acards h4 {
     font-size: 13px;
@@ -34,3 +50,4 @@
         -o-text-overflow: ellipsis;
     }
 }
+
