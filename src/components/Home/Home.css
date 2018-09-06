@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
 
 div.home {
   height: 100vh;
@@ -8,17 +8,18 @@ div.home {
   flex-direction: column;
   background: #fc4d4d;
   color: #ffffff;
-  font-family: 'Open Sans';
+  font-family: 'Bangers', cursive;
 }
 
 div.logo {
   position: absolute;
   top: 0;
+  font-size: 23px;
 }
 
 div.homebox {
   width: 150%;
-  height: 10vh;
+  height: 60px;
   padding: 50px 0px;
   margin-top: 50px;
   background: white;
@@ -29,17 +30,19 @@ div.homebox {
 }
 
 button.green {
-  background: #2bd73f;
+  background: #3ECA3E;
   color: white;
   padding: 10px 20px;
   font-size: 2em;
   border-radius: 10px;
-  font-family: 'Open Sans';
+  font-family: 'Gudea', sans-serif;
   font-weight: 600;
   outline: none;
 }
 
 button.green:hover {
   background: #15bf29;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 

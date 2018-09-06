@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
+
 .Loading-App {
   background-color: black;
   height: 100vh;
   width: 100%;
 }
 .Loading-App h2 {
-  margin-top: 80px;
+  margin-top: 60px;
   text-align: center;
   font-size: 46px;
   color: #f2f2f2;
+  font-family: 'Gudea', sans-serif;
 }
