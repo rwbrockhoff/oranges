@@ -27,7 +27,7 @@ class JoinGame extends Component {
   render() {
     return (
       <div class='App'>
-        <div className="box">
+        <div className="joinbox">
         <input placeholder='Game ID' onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.joinGame()} className='green'>Join Game</button>
         </div>

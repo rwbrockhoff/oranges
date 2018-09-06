@@ -88,7 +88,7 @@ class Loading extends Component {
                         className={override}
                         sizeUnit={"px"}
                         size={60}
-                        color={'#FC9C4D'}
+                        color={'#FFC53A'}
                         loading={this.state.loading}
                     />
                 </div>
