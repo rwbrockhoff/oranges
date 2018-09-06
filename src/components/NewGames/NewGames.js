@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addPlayer, storeUser, readyPlayer} from '../../ducks/reducer'
 import io from 'socket.io-client'
 import './NewGames.css'
+import {Redirect} from 'react-router-dom';
 
 const socket = io.connect('http://localhost:3020')
 
@@ -12,7 +13,8 @@ class NewGames extends Component {
         this.state = {
             input: '',
             roomId: null,
-            players: []
+            players: [],
+            toLoading: false
         }
 
         socket.on('user-added', data =>{
@@ -86,6 +88,9 @@ class NewGames extends Component {
       copyReady.push(this.props.user)
       await this.props.readyPlayer(copyReady)
       socket.emit('ready-player', {players: this.props.readyPlayers, room:this.props.room})
+      setTimeout(() => {
+        this.setState({toLoading: true})
+      }, 1000)
     }
 
   render(props) {
@@ -113,6 +118,7 @@ class NewGames extends Component {
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
         <button className="ready r">Cancel</button>
         </div>
+        {this.state.toLoading ? <Redirect to='/loading' /> : ''}
       </div>
     )
   }
