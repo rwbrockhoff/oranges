@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 div.Game-App {
-    background: #fc4d4d;
+    background: linear-gradient(#FFC53A, #F97400);
     width: 411px;
 }
 div.game {

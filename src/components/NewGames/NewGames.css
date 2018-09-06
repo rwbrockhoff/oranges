@@ -6,7 +6,7 @@ div.newgames {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #fc4d4d;
+  background: linear-gradient(#FFC53A, #F97400);
   color: #ffffff;
   font-family: 'Open Sans';
 }
@@ -24,7 +24,7 @@ div.box {
 }
 
 button.green {
-  background: #3ECA3E;
+  background: #279AF1;
   color: white;
   padding: 10px 20px;
   width: 80%;
@@ -37,7 +37,7 @@ button.green {
 }
 
 button.green:hover {
-  background: #15bf29;
+  background: #279AF1;
 }
 
 div.userinput {
@@ -71,6 +71,7 @@ div.roomid {
     height: 7vh;
     position: absolute;
     top: 2vh;
+    text-align: center;
 }
 
 div.footer {
@@ -100,12 +101,12 @@ button.ready.g {
 }
 
 button.ready.g:hover {
-    background: #15bf29;
+    background: #279AF1;
 }
 
 button.ready.r {
     background: white;
-    color: #fc4d4d;
+    color: linear-gradient(#FFC53A, #F97400);
 }
 
 button.ready.r:hover {
