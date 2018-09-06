@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import './Loading.css';
 
+import BottomNavigation  from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import { css } from 'react-emotion';
 import { GridLoader } from 'react-spinners';
 
+const root = css`
+        width: 500;
+        margin-top: 240px;
+`;
 const override = css`
     display: block;
     margin: 0 auto;
     border-color: red;
-    padding-top: 200px;
+    padding-top: 10px;
 `;
 
-export default class Loading extends Component {
+class Loading extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: true,
         }
     }
     render() {
@@ -26,12 +32,20 @@ export default class Loading extends Component {
                         className={override}
                         sizeUnit={"px"}
                         size={80}
-                        color={'#ff7023'}
+                        color={'#FC9C4D'}
                         loading={this.state.loading}
                     />
                 </div>
-                <h2><strong>Shuffling...</strong></h2>
+                <h2><strong>Waiting on other players...</strong></h2>
+                <BottomNavigation
+                    showLabels
+                    className={root}
+                >
+                    <BottomNavigationAction label='Leave Game' style={{color: '#333', fontSize: '30px'}} />
+                </BottomNavigation>
             </div>
         );
     }
 }
+
+export default (Loading);
