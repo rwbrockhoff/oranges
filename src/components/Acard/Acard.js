@@ -4,7 +4,6 @@ import axios from 'axios';
 import {storeACard} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 
-
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
 
@@ -20,6 +19,7 @@ class Acard extends Component {
   render() {
       let displayACards = this.props.aCards.map((e,i) => {
           return(
+
               <div class={i} key={e[0].id} id='Acards' 
               role="menuitem"
               tabIndex={i}>
@@ -40,6 +40,7 @@ class Acard extends Component {
                         infiniteScroll
                         enableHeading={true}
                         active={3}
+
                         media={{
                             '@media (max-width: 900px)': {
                                 width: '411px',

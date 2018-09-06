@@ -11,7 +11,7 @@ export default class Home extends Component {
   wow.init();
 
     return (
-      <div class="home">
+      <div className="home">
         <div className="logo">
         <h1>oranges to oranges </h1>
         </div>

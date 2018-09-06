@@ -22,7 +22,8 @@ export default class Game extends Component {
             <Acard/>
         </div>
 
-      </div>
-    )
-  }
+                </div>
+            </div>
+        );
+    }
 }

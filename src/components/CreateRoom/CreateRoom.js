@@ -14,13 +14,19 @@ class CreateRoom extends Component {
             input: '',
             toGameRoom: false
         }
+        socket.on('new-player', data => {
+          console.log(data.message)
+          this.setState({
+            toGameRoom: true
+          })
+        })
     }
 
     createGame(){
       socket.emit('join-room', {room: this.state.input})
       this.props.addRoom({room: this.state.input})
       this.setState({
-        toGameRoom: true
+        toGameRoom: false
       })
     }
 

@@ -27,6 +27,7 @@
     font-size: 16px;
     text-align: center;
     margin-bottom: -10px;
+
 }
 #Acards h4 {
     font-size: 13px;
@@ -49,3 +50,4 @@
         -o-text-overflow: ellipsis;
     }
 }
+
