@@ -31,18 +31,21 @@ class Loading extends Component {
                     <GridLoader
                         className={override}
                         sizeUnit={"px"}
-                        size={80}
+                        size={60}
                         color={'#FC9C4D'}
                         loading={this.state.loading}
                     />
                 </div>
                 <h2><strong>Waiting on other players...</strong></h2>
-                <BottomNavigation
-                    showLabels
-                    className={root}
-                >
-                    <BottomNavigationAction label='Leave Game' style={{color: '#333', fontSize: '30px'}} />
-                </BottomNavigation>
+                <div className="waitingOnPlayers">
+
+                {/* Store all Mapped Users Inside of waitingOnPlayers, and use div class waitingOnBubble for each rendered User.  */}
+                
+                    <div className="waitingOnBubble">
+                    BillyBob
+                    </div>
+
+                </div>
             </div>
         );
     }
