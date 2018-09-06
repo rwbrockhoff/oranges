@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import './Game.css';
-
-import Acard from '../Acard/Acard';
+import React, { Component } from 'react'
+import './Game.css'
+import WOW from 'wowjs'
+import Acard from '../Acard/Acard'
+import Qcard from '../Qcard/Qcard'
 
 export default class Game extends Component {
-    render() {
-        return (
-            <div className='Game-App'>
-                <div className="game">
+  render() {
 
-                    <div className="Qcard">
-                        {/* Import Q Card Component */}
-                    </div>
-                    <div className="border"></div>
+  //Initiate WOW on Render
+  const wow = new WOW.WOW();
+  wow.init();
 
-                    <div className="Acard">
-                        <Acard />
-                    </div>
+    return (
+      <div className="game">
+
+        <div className="Qcard wow fadeInDown" data-wow-duration="0.4s">
+          <Qcard/>
+        </div>
+        
+        <div className="Acard">
+            <Acard/>
+        </div>
 
                 </div>
             </div>
