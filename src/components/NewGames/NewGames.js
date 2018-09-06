@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import {addPlayer} from '../../ducks/reducer'
+import {addPlayer, storeUser, readyPlayer} from '../../ducks/reducer'
 import io from 'socket.io-client'
 import './NewGames.css'
 
@@ -33,6 +33,16 @@ class NewGames extends Component {
           }
         })
 
+        socket.on('ready-player-added', data => {
+          // console.log('readyplayers', data)
+          this.props.readyPlayer(data)
+        })
+
+        socket.on('readied-players', () => {
+          socket.emit('readyPlayers-array', {players: this.props.readyPlayers, room: this.props.room})
+        })
+
+
 
     }
     componentDidMount(props){
@@ -47,6 +57,12 @@ class NewGames extends Component {
         console.log(data.data.players, 'testy')
         this.props.addPlayer(data.data.players)
       })
+      socket.emit('receive-ready-players', {room: this.props.room})
+      socket.on('here-are-readyPlayers', data => {
+        // console.log('readied player', data)
+        this.props.readyPlayer(data)
+      })
+
     }
     
 
@@ -59,9 +75,17 @@ class NewGames extends Component {
       })
       if(names.indexOf(this.state.input) === -1){
         socket.emit('add-user', {userName: this.state.input, room:this.props.room})
+        this.props.storeUser({user: this.state.input})
       } else {
         alert('already used ya idiot')
       }
+    }
+
+    async readyClick(){
+      let copyReady = this.props.readyPlayers.slice(0);
+      copyReady.push(this.props.user)
+      await this.props.readyPlayer(copyReady)
+      socket.emit('ready-player', {players: this.props.readyPlayers, room:this.props.room})
     }
 
   render(props) {
@@ -79,11 +103,6 @@ class NewGames extends Component {
             </div>
           )
         })}
-        {/* <div className="userbubble">billyBob</div>
-        <div className="userbubble">billyBob</div>
-        <div className="userbubble">billyBob</div>
-        <div className="userbubble">billyBob</div>
-        <div className="userbubble">billyBob</div> */}
         
         </div>
         <div className="userinput">
@@ -91,7 +110,7 @@ class NewGames extends Component {
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
         <div className="footer">
-        <button className="ready g">Ready?</button>
+        <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
         <button className="ready r">Cancel</button>
         </div>
       </div>
@@ -102,7 +121,9 @@ class NewGames extends Component {
 function mapStateToProps(state){
   return {
     room: state.room,
-    users: state.users
+    users: state.users,
+    user: state.user,
+    readyPlayers: state.readyPlayers
   }
 }
-export default connect(mapStateToProps, {addPlayer})(NewGames);
+export default connect(mapStateToProps, {addPlayer, storeUser, readyPlayer})(NewGames);
