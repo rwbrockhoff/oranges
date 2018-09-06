@@ -60,6 +60,19 @@ massive(process.env.CONNECTION_STRING).then(db=>{
                 user : data.userName
             })
         })
+
+        socket.on('ready-player', data => {
+            console.log(data)
+            io.in(data.room).emit('ready-player-added', data.players)
+        })
+
+        socket.on('receive-ready-players', data => {
+            socket.in(data.room).broadcast.emit('readied-players')
+        })
+
+        socket.on('readyPlayers-array', data => {
+            socket.in(data.room).broadcast.emit('here-are-readyPlayers', data.players)
+        })
     })
 
 })

@@ -6,13 +6,17 @@ const initialState = {
     aCard: [],
     aCards: [],
     sCards: [],
-    qCard: []
+    qCard: [],
+    readyPlayers: [],
+    user: ''
 }
 
 const STOREQCARD = 'STOREQCARD';
 const STOREACARD = 'STOREACARD'
 const ADD_ROOM = "ADD_ROOM";
 const ADD_PLAYER = "ADD_PLAYER";
+const STOREUSER = 'STOREUSER';
+const READYPLAYER = 'READYPLAYER';
 
 export const storeQCard = (card) => ({
   type: STOREQCARD,
@@ -34,6 +38,18 @@ export const addPlayer = (players) => ({
   payload: players
 })
 
+export const storeUser = (user) => ({
+  type: STOREUSER,
+  payload: user
+})
+
+export const readyPlayer = (player) => ({
+  type: READYPLAYER,
+  payload: player
+})
+
+
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -50,6 +66,12 @@ export default (state = initialState, action) => {
 
     case ADD_PLAYER:
       return Object.assign({},state,{users: action.payload})
+    
+      case STOREUSER:
+      return Object.assign({},state,{user: action.payload})
+      
+      case READYPLAYER:
+      return Object.assign({},state,{readyPlayers: action.payload})
 
   default:
     return state
