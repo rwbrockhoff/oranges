@@ -12,6 +12,7 @@ import Loading from './components/Loading/Loading';
 import NewGame from './components/NewGames/NewGames';
 import Pending from './components/Pending/Pending';
 import CreateRoom from './components/CreateRoom/CreateRoom';
+import BottomNavBar from './components/BottomNavBar/BottomNavBar';
 // import Qcard from './components/Qcard/Qcard';
 
 export default (
@@ -25,5 +26,6 @@ export default (
         <Route component={EndRound} path='/End-Round' />
         <Route component={EndGame} path='/End-Game' />
         <Route component={CreateRoom} path='/Create-Room'/>
+        <Route component={BottomNavBar} path='/nav'/>
     </Switch>
 );

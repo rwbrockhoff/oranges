@@ -13,10 +13,7 @@ div.home {
 }
 
 div.logo {
-  position: absolute;
-  top: 0;
-  font-size: 23px;
-  text-align: center;
+  margin-top: 50px;
 }
 
 div.homebox {
