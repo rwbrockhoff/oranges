@@ -90,8 +90,6 @@ class NewGames extends Component {
 
     async readyClick(){
       
-      // Create a condition that checks if this person has created a user. If so, let them emit. If not, alert user. 
-
       let copyReady = this.props.readyPlayers.slice(0);
       copyReady.push(this.props.user)
       await this.props.readyPlayer(copyReady)
@@ -135,6 +133,17 @@ class NewGames extends Component {
       }
     }
 
+    var userButtonReady = () => {
+      if (this.state.userNameSubmit){
+        return (
+          <div>
+        <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
+        </div>
+        )
+      }
+      
+    }
+
   
     return (
       <div className="newgames">
@@ -157,8 +166,7 @@ class NewGames extends Component {
         {userInputReady()}
       
         <div className="footer">
-        <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
-        <button className="ready r" onClick={this.cancelGame}>Cancel</button>
+        {userButtonReady()}
         </div>
         {this.state.toLoading ? <Redirect to='/loading' /> : ''}
         {this.state.cancelGame ? <Redirect to='/' /> : ''}
