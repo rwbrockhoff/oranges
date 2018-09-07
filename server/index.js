@@ -95,3 +95,9 @@ app.post('/api/newplayer', controller.newPlayer)
 //Needs a real comment
 app.delete('/api/deleteplayer/:id', controller.deletePlayer)
 
+app.post('/api/addroom', controller.addRoom)
+
+app.get('/api/checkroom/:name', controller.checkRoom)
+
+app.put('/api/lockroom', controller.lockRoom)
+

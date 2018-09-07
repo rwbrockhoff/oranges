@@ -23,11 +23,13 @@ div.home {
 
 div.logo {
   opacity: 0;
+  font-size: 40px;
   margin-top: 50px;
   animation-name: appear;
   animation-delay: 4s;
   animation-fill-mode: forwards;
   animation-duration: 3s;
+  text-align: center;
 }
 
 div.homebox {

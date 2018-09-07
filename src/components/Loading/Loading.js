@@ -8,6 +8,7 @@ import { GridLoader } from 'react-spinners';
 import {connect} from 'react-redux';
 import io from 'socket.io-client';
 import {addPlayer} from '../../ducks/reducer'
+import axios from 'axios'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -28,9 +29,17 @@ class Loading extends Component {
         super(props);
         this.state = {
             loading: true,
+            waiting: true,
             waitingPlayers: [],
             propsReadyPlayers: []
         }
+
+        socket.on('user-added', data =>{
+            let tempArr = this.props.users.slice(0)
+            tempArr.push(data)
+            console.log(tempArr)
+            this.props.addPlayer(tempArr)
+          })
 
         socket.on('ready-player-added', data => {
             // console.log('readyplayers', data)
@@ -59,6 +68,20 @@ class Loading extends Component {
             return tempArray
         })
         this.setState({waitingPlayers: tempArray})
+        if(this.props.readyPlayers.length === this.props.users.length){
+            axios.put('/api/lockroom', {roomName:this.props.room})
+            .then(
+                this.setState({
+                    waiting: false
+                })
+            )
+
+        } else if (this.props.readyPlayers.length !== this.props.users.length){
+            this.setState({
+                waiting: true
+            })
+        }
+        
     }
     
     async componentDidUpdate(prevProps){
@@ -78,6 +101,15 @@ class Loading extends Component {
                 return tempArray
             })
             this.setState({waitingPlayers: tempArray})
+            if(this.props.readyPlayers.length === this.props.users.length){
+                this.setState({
+                    waiting: false
+                })
+            } else if (this.props.readyPlayers.length !== this.props.users.length){
+                this.setState({
+                    waiting: true
+                })
+            }
         }
     }
 
@@ -93,7 +125,7 @@ class Loading extends Component {
                         loading={this.state.loading}
                     />
                 </div>
-                <h2><strong>Waiting on other players...</strong></h2>
+                <h2><strong>{this.state.waiting ? 'Waiting on the following players...' : 'Shuffling deck...'}</strong></h2>
                 <div className="waitingOnPlayers">
 
                 {/* Store all Mapped Users Inside of waitingOnPlayers, and use div class waitingOnBubble for each rendered User.  */}

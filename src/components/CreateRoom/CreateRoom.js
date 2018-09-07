@@ -4,6 +4,7 @@ import io from 'socket.io-client'
 import {Redirect} from 'react-router-dom'
 import {addRoom} from '../../ducks/reducer';
 import {connect} from 'react-redux';
+import axios from 'axios'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -23,11 +24,23 @@ class CreateRoom extends Component {
     }
 
     createGame(){
-      socket.emit('join-room', {room: this.state.input})
-      this.props.addRoom({room: this.state.input})
-      this.setState({
-        toGameRoom: false
+      axios.get(`/api/checkroom/${this.state.input}`)
+      .then(res => {
+        console.log(res)
+        if(!res.data[0]){
+          axios.post('/api/addroom', {room: this.state.input})
+          .then(res =>{
+            socket.emit('join-room', {room: this.state.input})
+            this.props.addRoom({room: this.state.input})
+            this.setState({
+              toGameRoom: false
+            })
+          })
+        } else {
+          alert('room already taken')
+        }
       })
+
     }
 
   render() {
