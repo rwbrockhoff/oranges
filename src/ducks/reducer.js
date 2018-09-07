@@ -8,7 +8,7 @@ const initialState = {
     sCards: [],
     qCard: [],
     readyPlayers: [],
-    user: ''
+    user: {}
 }
 
 const STOREQCARD = 'STOREQCARD';

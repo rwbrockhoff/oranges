@@ -101,6 +101,7 @@ class Loading extends Component {
                     // console.log('e',e)
                     return(
                     <div className="waitingOnBubble">
+                        <img className='userImageLoading' src={e.userPic} />
                         {e.user}
                     </div>
                     )
