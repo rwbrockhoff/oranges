@@ -14,6 +14,7 @@ class NewGames extends Component {
         super()
         this.state = {
             input: '',
+            pictureInput: '',
             roomId: null,
             players: [],
             toLoading: false,
@@ -80,8 +81,8 @@ class NewGames extends Component {
         return element.user
       })
       if(names.indexOf(this.state.input) === -1){
-        socket.emit('add-user', {userName: this.state.input, room:this.props.room})
-        this.props.storeUser({user: this.state.input})
+        socket.emit('add-user', {userName: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, room:this.props.room})
+        this.props.storeUser({user: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`})
         this.setState({userNameSubmit: true})
       } else {
         alert('already used ya idiot')
@@ -118,7 +119,8 @@ class NewGames extends Component {
       if (!this.state.userNameSubmit){
         return (
         <div className="userinput">
-        <input onChange={(e) => this.setState({input: e.target.value})}/>
+        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.pictureInput}.png`} /> */}
+        <input onChange={(e) => this.setState({input: e.target.value, pictureInput: e.target.value})}/>
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
         )}
@@ -153,13 +155,20 @@ class NewGames extends Component {
         {/* When we pull in users, we'll want to map over that array here instead of a static set of divs. Just for visual example. Please use classnames to maintain styling.  */}
         <div className="userbox">
         {this.props.users.map(element=>{
+          console.log('elementuser',element)
           return(
             <div className="userbubble">
+              <img className='userImage' src={element.userPic} />
               {element.user}
             </div>
           )
         })}
         
+        </div>
+        <div className="userinput">
+        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.input}.png`} /> */}
+        <input onChange={(e) => this.setState({input: e.target.value})}/>
+        <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
         
         {/* Running conditional render for userInput */}
