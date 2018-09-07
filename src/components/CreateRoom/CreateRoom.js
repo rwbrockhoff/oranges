@@ -33,7 +33,7 @@ class CreateRoom extends Component {
   render() {
     return (
         <div class='createRoom'>
-        <div className="box">
+        <div className="create-room-box">
         <input placeholder='New Game ID' onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.createGame()} className='green'>Create Game</button>
         </div>

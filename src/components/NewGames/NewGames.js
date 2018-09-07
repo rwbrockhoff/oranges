@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import {addPlayer, storeUser, readyPlayer} from '../../ducks/reducer'
 import io from 'socket.io-client'
+import WOW from 'wowjs'
 import './NewGames.css'
+import {Redirect, Link} from 'react-router-dom';
+import { notDeepEqual } from 'assert';
 
 const socket = io.connect('http://localhost:3020')
 
@@ -12,7 +15,10 @@ class NewGames extends Component {
         this.state = {
             input: '',
             roomId: null,
-            players: []
+            players: [],
+            toLoading: false,
+            userNameSubmit: false,
+            cancelGame: false
         }
 
         socket.on('user-added', data =>{
@@ -76,19 +82,60 @@ class NewGames extends Component {
       if(names.indexOf(this.state.input) === -1){
         socket.emit('add-user', {userName: this.state.input, room:this.props.room})
         this.props.storeUser({user: this.state.input})
+        this.setState({userNameSubmit: true})
       } else {
         alert('already used ya idiot')
       }
     }
 
     async readyClick(){
+      
+      // Create a condition that checks if this person has created a user. If so, let them emit. If not, alert user. 
+
       let copyReady = this.props.readyPlayers.slice(0);
       copyReady.push(this.props.user)
       await this.props.readyPlayer(copyReady)
       socket.emit('ready-player', {players: this.props.readyPlayers, room:this.props.room})
+      setTimeout(() => {
+        this.setState({toLoading: true})
+      }, 1000)
+    }
+
+    cancelGame = () => {
+      this.setState({cancelGame: true})
+
+      // If user submitted userName, but cancelled game--we need to
+      // remove them from readyPlayers on cancel.
+
     }
 
   render(props) {
+
+    //Initiate WOW on Render
+    const wow = new WOW.WOW();
+     wow.init();
+
+    var userInputReady = () => {
+      // If they haven't submitted a userName, render Input box.
+      if (!this.state.userNameSubmit){
+        return (
+        <div className="userinput">
+        <input onChange={(e) => this.setState({input: e.target.value})}/>
+        <button onClick={()=>this.createUser()}className="green">Join Game</button>
+        </div>
+        )}
+
+      // If they submitted userName, render a ready message.
+      else {
+        return (
+          <div className="readymessage wow fadeInUp">
+        <h2>Join when ready.</h2>
+        </div>
+        )
+      }
+    }
+
+  
     return (
       <div className="newgames">
         <div className="roomid">
@@ -106,14 +153,20 @@ class NewGames extends Component {
         
         </div>
         <div className="userinput">
-        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.input}.png`} /> */}
+        <img src={`https://api.adorable.io/avatars/69/${this.state.input}.png`} />
         <input onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
+        
+        {/* Running conditional render for userInput */}
+        {userInputReady()}
+      
         <div className="footer">
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
-        <button className="ready r">Cancel</button>
+        <button className="ready r" onClick={this.cancelGame}>Cancel</button>
         </div>
+        {this.state.toLoading ? <Redirect to='/loading' /> : ''}
+        {this.state.cancelGame ? <Redirect to='/' /> : ''}
       </div>
     )
   }

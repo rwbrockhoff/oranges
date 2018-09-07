@@ -6,7 +6,7 @@ div.createRoom {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #fc4d4d;
+  background: linear-gradient(#FFC53A, #F97400);
   color: #ffffff;
   font-family: 'Gudea', sans-serif;
 }
@@ -16,9 +16,9 @@ div.logo {
   top: 0;
 }
 
-div.box {
-  width: 90%;
-  padding: 60px 0px;
+div.create-room-box {
+  width: 140%;
+  padding: 50px 0px;
   margin-top: -50px;
   background: white;
   border-radius: 20px;
@@ -30,7 +30,7 @@ div.box {
 }
 
 button.green {
-  background: #3ECA3E;
+  background: #279AF1;
   color: white;
   padding: 5px 20px;
   width: 90%;
@@ -43,7 +43,7 @@ button.green {
 }
 
 button.green:hover {
-  background: #15bf29;
+  background: #279AF1;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }

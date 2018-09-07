@@ -19,7 +19,7 @@ div.leaderboard {
 }
 
 button.green {
-    background: #2bd73f;
+    background: #279AF1;
     color: white;
     padding: 5px 20px;
     width: 80%;
@@ -33,5 +33,5 @@ button.green {
   }
   
   button.green:hover {
-    background: #15bf29;
+    background: #279AF1;
   }
