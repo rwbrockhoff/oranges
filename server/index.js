@@ -57,7 +57,7 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         socket.on('add-user', data =>{
             console.log(data.userName)
             io.in(data.room).emit('user-added', {
-                user : data.userName
+                user : data.userName, userPic: data.userPic
             })
         })
 

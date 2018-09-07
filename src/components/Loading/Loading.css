@@ -26,11 +26,11 @@
 
 div.waitingOnBubble {
   width: 80vw;
-  height: 5vh;
+  height: 6vh;
   padding: 5px 5px;
   background: white;
   color: black;
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-weight: 600;
   border-radius: 10px;
   box-shadow: 10px 10px 74px -9px rgba(0,0,0,0.60);
@@ -39,4 +39,10 @@ div.waitingOnBubble {
   align-items: center;
   overflow-x: scroll;
   margin: 10px;
+}
+
+img.userImageLoading{
+  position: absolute;
+  left: 10%;
+  border-radius: 50px;
 }
