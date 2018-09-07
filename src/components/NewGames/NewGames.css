@@ -70,8 +70,10 @@ input:focus {
 div.roomid {
     height: 7vh;
     position: absolute;
-    top: 2vh;
-    text-align: center;
+    top: 3.5vh;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 1em;
 }
 
 div.readymessage {

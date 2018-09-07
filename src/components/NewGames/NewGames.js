@@ -5,6 +5,7 @@ import io from 'socket.io-client'
 import WOW from 'wowjs'
 import './NewGames.css'
 import {Redirect, Link} from 'react-router-dom';
+import { notDeepEqual } from 'assert';
 
 const socket = io.connect('http://localhost:3020')
 
@@ -88,6 +89,9 @@ class NewGames extends Component {
     }
 
     async readyClick(){
+      
+      // Create a condition that checks if this person has created a user. If so, let them emit. If not, alert user. 
+
       let copyReady = this.props.readyPlayers.slice(0);
       copyReady.push(this.props.user)
       await this.props.readyPlayer(copyReady)
