@@ -8,7 +8,12 @@ export default class BottomNavBar extends Component {
       <div className='container'>
           
         <div className='bottomNav'>
+
+        <div className='sectionOne'>
         <i className="fas fa-home"/>
+        <p>Home</p>
+        </div>
+
         </div>
             
       </div>
