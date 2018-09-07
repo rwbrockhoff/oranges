@@ -40,5 +40,26 @@ module.exports = {
             res.status(200).send('deleted')
         })
 
+    },
+    addRoom: (req,res) => {
+        const db = req.app.get('db')
+        db.add_room({roomName: req.body.room})
+        .then(response => {
+            res.status(200).send('added')
+        })
+    },
+    checkRoom: (req,res) => {
+        const db = req.app.get('db')
+        db.check_room({roomName: req.params.name})
+        .then(response => {
+            res.status(200).send(response)
+        })
+    },
+    lockRoom: (req,res) => {
+        const db = req.app.get('db')
+        db.lock_room({roomName: req.body.roomName})
+        .then(response=>{
+            res.status(200).send('locked')
+        })
     }
 }
