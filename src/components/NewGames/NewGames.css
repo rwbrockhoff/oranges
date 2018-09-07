@@ -74,6 +74,12 @@ div.roomid {
     text-align: center;
 }
 
+div.readymessage {
+    height: 10vh;
+    position: absolute;
+    bottom: 140px;
+}
+
 div.footer {
     height: 10vh;
     width: 100%;
