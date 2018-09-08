@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import io from 'socket.io-client';
 import {addPlayer} from '../../ducks/reducer'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -73,7 +74,8 @@ class Loading extends Component {
             .then(
                 this.setState({
                     waiting: false
-                })
+                }),
+                this.toGame()
             )
 
         } else if (this.props.readyPlayers.length !== this.props.users.length){
@@ -104,13 +106,22 @@ class Loading extends Component {
             if(this.props.readyPlayers.length === this.props.users.length){
                 this.setState({
                     waiting: false
-                })
+                }),
+                this.toGame()
             } else if (this.props.readyPlayers.length !== this.props.users.length){
                 this.setState({
                     waiting: true
                 })
             }
         }
+        
+    }
+    toGame(){
+        setTimeout(()=>{
+            this.setState({
+                toGame: true
+            })
+        },3000)
     }
 
     render() {
@@ -140,6 +151,7 @@ class Loading extends Component {
                 })}
 
                 </div>
+                {this.state.toGame ? <Redirect to="/Game"/> : ''}
             </div>
         );
     }
