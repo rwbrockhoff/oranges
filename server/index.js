@@ -42,27 +42,25 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 
         socket.on('join-room', data => {
             socket.join(data.room)
-            socket.emit('new-player', {
-                message: 'new player!'
-            })
+            // socket.emit('new-player', {
+            //     message: 'new player!'
+            // })
             socket.in(data.room).broadcast.emit('get-me-players')
         
         })
 
         socket.on('here-are-players', data =>{
-            console.log(data, 'the players')
             io.emit('add-players', {data})
+            // emitting to everyone. change over to room. 
         })
 
         socket.on('add-user', data =>{
-            console.log(data.userName)
             io.in(data.room).emit('user-added', {
                 user : data.userName, userPic: data.userPic, judge: false
             })
         })
 
         socket.on('ready-player', data => {
-            console.log(data)
             io.in(data.room).emit('ready-player-added', data.players)
         })
 
@@ -72,8 +70,12 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 
         socket.on('readyPlayers-array', data => {
             console.log('ry-players', data, data.players)
-            socket.in(data.room).broadcast.emit
-            ('here-are-readyPlayers', data.players)
+            socket.in(data.room).broadcast.emit('here-are-readyPlayers', data.players)
+        })
+        socket.on('updateQCard', data => {
+            socket.join(data.room)
+            console.log('datain update', data)
+            io.in(data.room).emit('getQCard', data.qCard)
         })
     })
 

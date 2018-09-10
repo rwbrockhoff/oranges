@@ -2,7 +2,6 @@ const initialState = {
     users: [],
     room: '',
     scores: [],
-    judge: false,
     aCard: [],
     aCards: [],
     sCards: [],
@@ -17,6 +16,9 @@ const ADD_ROOM = "ADD_ROOM";
 const ADD_PLAYER = "ADD_PLAYER";
 const STOREUSER = 'STOREUSER';
 const READYPLAYER = 'READYPLAYER';
+const SETJUDGE = 'SETJUDGE';
+const UPDATEJUDGE = 'UPDATEJUDGE';
+const UPDATEQCARD = 'UPDATEQCARD';
 
 export const storeQCard = (card) => ({
   type: STOREQCARD,
@@ -49,6 +51,21 @@ export const readyPlayer = (player) => ({
   payload: player
 })
 
+export const setJudge = (users) => ({
+  type: SETJUDGE,
+  payload: users
+})
+
+export const updateJudge = (user) => ({
+  type: UPDATEJUDGE,
+  payload: user
+})
+
+export const updateQCard = (card) => ({
+  type: UPDATEQCARD,
+  payload: card
+})
+
 
 
 
@@ -73,6 +90,15 @@ export default (state = initialState, action) => {
       
       case READYPLAYER:
       return Object.assign({},state,{readyPlayers: action.payload})
+
+      case SETJUDGE:
+      return Object.assign({}, state, {users: action.payload})
+
+      case UPDATEJUDGE:
+      return Object.assign({}, state, {user: action.payload})
+
+      case UPDATEQCARD:
+      return Object.assign({}, state, {qCard: action.payload})
 
   default:
     return state
