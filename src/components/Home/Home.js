@@ -5,7 +5,7 @@ import WOW from 'wowjs'
 
 
 export default class Home extends Component {
-  render() {
+  render(props) {
     //Initiate WOW on Render
   const wow = new WOW.WOW();
   wow.init();
