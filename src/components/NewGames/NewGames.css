@@ -6,9 +6,8 @@ div.newgames {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: linear-gradient(#FFC53A, #F97400);
+  background: linear-gradient(#87ceeb, #00a6e8);
   color: #ffffff;
-  font-family: 'Open Sans';
 }
 
 div.box {
@@ -52,6 +51,10 @@ div.userinput {
     position: absolute;
     bottom: 18vh;
     box-shadow: 10px 10px 93px -33px #000000bf;
+}
+
+h2.readyMessage {
+    font-family: 'Open Sans';
 }
 
 input {
