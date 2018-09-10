@@ -126,17 +126,24 @@ class NewGames extends Component {
         )}
 
       // If they submitted userName, render a ready message.
-      else {
+      else if (this.state.userNameSubmit && this.props.users.length > 1) {
         return (
           <div className="readymessage wow fadeInUp">
         <h2 className="readyMessage">Join when ready.</h2>
         </div>
         )
       }
+      else if(this.state.userNameSubmit){
+        return(
+        <div className="readymessage wow fadeInUp">
+        <h2 className="readyMessage">Waiting for more players</h2>
+        </div>
+        )
+      }
     }
 
     var userButtonReady = () => {
-      if (this.state.userNameSubmit){
+      if (this.state.userNameSubmit && this.props.users.length > 1){
         return (
           <div>
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
@@ -158,7 +165,9 @@ class NewGames extends Component {
           console.log('elementuser',element)
           return(
             <div className="userbubble">
+            <div className="image-div">
               <img className='userImage' src={element.userPic} />
+              </div>
               {element.user}
             </div>
           )
