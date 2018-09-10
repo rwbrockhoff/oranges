@@ -26,7 +26,6 @@ class CreateRoom extends Component {
     createGame(){
       axios.get(`/api/checkroom/${this.state.input}`)
       .then(res => {
-        console.log(res)
         if(!res.data[0]){
           axios.post('/api/addroom', {room: this.state.input})
           .then(res =>{
