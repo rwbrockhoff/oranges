@@ -19,9 +19,8 @@ div.game {
 div.Qcard {
   height: 50vh;
   width: 100%;
-  padding: 10px 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 
 }
