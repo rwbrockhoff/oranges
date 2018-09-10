@@ -48,6 +48,7 @@ class Loading extends Component {
           })
   
           socket.on('readied-players', () => {
+
             socket.emit('readyPlayers-array', {players: this.props.readyPlayers, room: this.props.room})
           })
 
@@ -75,6 +76,8 @@ class Loading extends Component {
                 this.setState({
                     waiting: false
                 }),
+                 
+                Math.floor ( Math.random() * this.props.users.length ),
                 this.toGame()
             )
 
