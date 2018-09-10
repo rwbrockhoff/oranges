@@ -158,7 +158,9 @@ class NewGames extends Component {
           console.log('elementuser',element)
           return(
             <div className="userbubble">
+            <div className="image-div">
               <img className='userImage' src={element.userPic} />
+              </div>
               {element.user}
             </div>
           )
