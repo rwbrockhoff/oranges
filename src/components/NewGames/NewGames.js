@@ -129,7 +129,7 @@ class NewGames extends Component {
       else {
         return (
           <div className="readymessage wow fadeInUp">
-        <h2>Join when ready.</h2>
+        <h2 className="readyMessage">Join when ready.</h2>
         </div>
         )
       }
@@ -165,11 +165,7 @@ class NewGames extends Component {
         })}
         
         </div>
-        <div className="userinput">
-        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.input}.png`} /> */}
-        <input onChange={(e) => this.setState({input: e.target.value})}/>
-        <button onClick={()=>this.createUser()}className="green">Join Game</button>
-        </div>
+        
         
         {/* Running conditional render for userInput */}
         {userInputReady()}
