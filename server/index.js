@@ -57,7 +57,7 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         socket.on('add-user', data =>{
             console.log(data.userName)
             io.in(data.room).emit('user-added', {
-                user : data.userName, userPic: data.userPic
+                user : data.userName, userPic: data.userPic, judge: false
             })
         })
 
@@ -71,7 +71,9 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
 
         socket.on('readyPlayers-array', data => {
-            socket.in(data.room).broadcast.emit('here-are-readyPlayers', data.players)
+            console.log('ry-players', data, data.players)
+            socket.in(data.room).broadcast.emit
+            ('here-are-readyPlayers', data.players)
         })
     })
 
