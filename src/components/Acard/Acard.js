@@ -24,6 +24,7 @@ class Acard extends Component {
               role="menuitem"
               tabIndex={i}>
                 <h2>{e[0].name}</h2>
+                <br />
                 <h4>{e[0].description}</h4>
                 
               </div>
