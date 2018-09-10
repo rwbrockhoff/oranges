@@ -5,7 +5,12 @@ import WOW from 'wowjs'
 
 
 export default class Home extends Component {
-  render(props) {
+
+  componentWillUnmount(){
+    window.clearTimeout(this.orangeTimer)
+  }
+
+  render() {
     //Initiate WOW on Render
   const wow = new WOW.WOW();
   wow.init();
@@ -93,9 +98,9 @@ export default class Home extends Component {
                 </div>
                   </div>
                 </div>
-                {window.setTimeout(function(){
-                  document.getElementById('o5').id = 'o6'
-                  },4000)}
+                {this.orangeTimer = window.setTimeout(function(){
+      document.getElementById('o5').id = 'o6'
+      },4000)}
       </div>
       </div>
     );
