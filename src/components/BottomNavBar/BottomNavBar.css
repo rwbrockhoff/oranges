@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+
 div.container {
     width: 100%;
     height: 100vh;
+    font-family: 'Open Sans';
 }
 
 div.bottomNav {
     width: 100%;
-    height: 10vh;
+    height: 7vh;
     background: white;
+    padding-top: 5px;
     position: absolute;
     bottom: 0;
     color: black;
@@ -16,7 +21,7 @@ div.bottomNav {
 
 div.bottomNav i {
     color: black;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 div.sectionOne {

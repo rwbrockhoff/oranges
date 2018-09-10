@@ -38,6 +38,7 @@ ReactDOM.render(
                 <Route path='/New-Game' render={() => (
                     <div>
                         <NewGame />
+                        <BottomNav />
                     </div>
                 )} />
 
