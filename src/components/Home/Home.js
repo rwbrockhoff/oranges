@@ -10,7 +10,7 @@ export default class Home extends Component {
     window.clearTimeout(this.orangeTimer)
   }
 
-  render() {
+  render(props) {
     //Initiate WOW on Render
   const wow = new WOW.WOW();
   wow.init();
