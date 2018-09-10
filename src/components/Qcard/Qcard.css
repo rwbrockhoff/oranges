@@ -3,8 +3,22 @@
     color: white;
     text-align: center;
     border-radius: 15px;
-    width: 75%;
+    width: 80%;
     height: 20vh;
-    margin: auto;
-    padding: 5px 25px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 1.3em;
+    line-height: 1.5em;
 }
