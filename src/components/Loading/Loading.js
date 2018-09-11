@@ -110,6 +110,7 @@ class Loading extends Component {
                 this.setState({
                     waiting: false
                 }),
+                this.setJudge(),
                 this.toGame()
             } else if (this.props.readyPlayers.length !== this.props.users.length){
                 this.setState({
@@ -123,7 +124,7 @@ class Loading extends Component {
     setJudge = () => {
         let modifiedUsers = this.props.users
         let index = Math.floor ( Math.random() * this.props.users.length )
-        modifiedUsers[index].judge = true
+        modifiedUsers[0].judge = true
         this.props.setJudge(modifiedUsers)
     }
 

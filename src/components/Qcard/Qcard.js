@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {storeQCard} from '../../ducks/reducer';
+import {storeQCard, updateQCard} from '../../ducks/reducer';
 import {connect} from 'react-redux';
 import io from 'socket.io-client';
 import './Qcard.css';
@@ -9,16 +9,28 @@ const socket = io.connect('http://localhost:3020')
 
 
 class Qcard extends Component {
+    constructor(){
+        super()
+        socket.on('getQCard', data => {
+            this.props.updateQCard(data.qCard)
+        })
+        
+    }
 
 
     componentDidMount(){
+        socket.emit('join-room-generic', {room: this.props.room})
+
+        let obj = this.arrayGet()
+        console.log('obj', obj[0])
+        console.log('pro', this.props.user.user)
         
-        var test = this.arrayGet()
-        console.log(test, 'test')
-        // if (this.arrayGet()[0] === this.props.user.user){
-        //     alert('The doggo!')
-        //     this.setter()
-        // }
+
+        if (obj[0].user === this.props.user.user){
+            alert('The doggo!')
+            this.setter()
+        }
+    
     }
 
     // if (temp[0]){
@@ -76,4 +88,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {storeQCard})(Qcard);
+export default connect(mapStateToProps, {storeQCard, updateQCard})(Qcard);
