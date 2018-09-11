@@ -35,8 +35,7 @@ class NewGames extends Component {
 
         socket.on('get-me-players', ()=>{
           if(this.props.users[0]) {
-            console.log(this.props.users, "users being sent?")
-            socket.emit('here-are-players', {players: this.props.users})
+            socket.emit('here-are-players', {players: this.props.users, room: this.props.room})
           }
         })
 
@@ -49,6 +48,14 @@ class NewGames extends Component {
           socket.emit('readyPlayers-array', {players: this.props.readyPlayers, room: this.props.room})
         })
 
+        socket.on('add-players', data => {
+          this.props.addPlayer(data.data.players)
+        })
+
+        socket.on('here-are-readyPlayers', data => {
+          this.props.readyPlayer(data)
+        })
+
 
 
     }
@@ -59,16 +66,13 @@ class NewGames extends Component {
       })
       socket.emit('join-room', {room:this.props.room})
 
-      socket.on('add-players', data => {
-        console.log(data, 'its the data')
-        console.log(data.data.players, 'testy')
-        this.props.addPlayer(data.data.players)
-      })
+      // socket.on('add-players', data => {
+      //   this.props.addPlayer(data.data.players)
+      // })
       socket.emit('receive-ready-players', {room: this.props.room})
-      socket.on('here-are-readyPlayers', data => {
-        // console.log('readied player', data)
-        this.props.readyPlayer(data)
-      })
+      // socket.on('here-are-readyPlayers', data => {
+      //   this.props.readyPlayer(data)
+      // })
 
     }
     
