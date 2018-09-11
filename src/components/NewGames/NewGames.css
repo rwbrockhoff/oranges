@@ -156,12 +156,14 @@ div.userbubble {
 
 img.userImage{
     border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
 }
 .image-div{
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    left: 5%;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
 }
 .image-div:before{
     content: '';
@@ -174,6 +176,50 @@ img.userImage{
     background: rgba(255,140,0,.5);
     border-radius: 50px;
     filter: brightness(1.3) saturate(6);
+    z-index: 101;
+}
+.main-image-div{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5%;
+    top: 18%;
+}
+.stem-new {
+    width: 4px;
+    height: 10px;
+    background-color: #654321;
+    z-index: 199;
+    position: absolute;
+    top: -17%;
+    left: 45%;
+    border-radius: 10px;
+}
+.leaf1-new {
+    width: 10px;
+    height: 15px;
+    background-color: green;
+    border: 1px solid darkgreen;
+    position: absolute;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    top: -30%;
+    left: 60%;
+    transform: rotate(25deg);
+    z-index: 198;
+}
+.leaf2-new {
+    width: 10px;
+    height: 15px;
+    background-color: green;
+    border: 1px solid darkgreen;
+    position: absolute;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform: rotate(-35deg);
+    top: -25%;
+    right: 60%;
+    z-index: 200;
 }
 
 
