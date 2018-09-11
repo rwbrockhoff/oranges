@@ -9,7 +9,7 @@ module.exports = {
                 let number = Math.floor(Math.random() * Math.floor(response.length))
                 let card = response.splice(number,1)
                 cardArray.push(card)
-                console.log(cardArray)
+                
             }
             res.status(200).send(cardArray)
         })
