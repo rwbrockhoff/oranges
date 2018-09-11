@@ -50,19 +50,16 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
 
         socket.on('here-are-players', data =>{
-            console.log(data, 'the players')
-            io.emit('add-players', {data})
+            io.in(data.room).emit('add-players', {data})
         })
 
         socket.on('add-user', data =>{
-            console.log(data.userName)
             io.in(data.room).emit('user-added', {
                 user : data.userName, userPic: data.userPic, judge: false, score: data.score
             })
         })
 
         socket.on('ready-player', data => {
-            console.log(data)
             io.in(data.room).emit('ready-player-added', data.players)
         })
 

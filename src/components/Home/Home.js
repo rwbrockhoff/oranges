@@ -22,11 +22,12 @@ export default class Home extends Component {
         <h1>oranges to oranges </h1>
         </div>
 
-        <div className="homebox wow fadeInRight" data-wow-delay="4.5s" data-wow-duration="1s">
+        {/* data-wow-delay="4.5s" */}
+        <div className="homebox wow fadeInRight"  data-wow-duration="1s">
         <Link to="/Create-Room"><center><button className='green'>New Game</button></center></Link>
         </div>
 
-        <div className="homebox wow fadeInLeft"  data-wow-delay="4.5s" data-wow-duration="1s">
+        <div className="homebox wow fadeInLeft"  data-wow-duration="1s">
         <Link to="/Join-Game" ><center><button className='green'>Join Game</button></center></Link>
         </div>
         <div class="image-area">
