@@ -33,6 +33,12 @@ div.sectionOne {
     flex-direction: row;
 }
 
+img.userNavImage{
+    position: absolute;
+    left: 5%;
+    border-radius: 50px;
+}
+
 .score{
     position: absolute;
     right: 10%;

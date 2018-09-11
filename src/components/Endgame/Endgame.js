@@ -8,7 +8,14 @@ class Endgame extends Component {
       return(
         <div className='newgames'>
         <div className='userbubble' key={i}>
-          <img className='userEndImage' src={e.userPic} />
+        <div className="main-image-div">
+          <div className="stem-new"></div>
+          <div className="leaf1-new"></div>
+          <div className="leaf2-new"></div>
+          <div className="image-div">
+          <img className='userImage' src={e.userPic} />
+          </div>
+          </div>
           <h2>{e.user}</h2>
           <h4 className='endscore'>{e.score}</h4>
         </div>
