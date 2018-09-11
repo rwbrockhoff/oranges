@@ -7,7 +7,7 @@ import { css } from 'react-emotion';
 import { GridLoader } from 'react-spinners';
 import {connect} from 'react-redux';
 import io from 'socket.io-client';
-import {addPlayer} from '../../ducks/reducer'
+import {addPlayer, setJudge} from '../../ducks/reducer'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 
@@ -76,8 +76,8 @@ class Loading extends Component {
                 this.setState({
                     waiting: false
                 }),
-                 
-                Math.floor ( Math.random() * this.props.users.length ),
+        
+                this.setJudge(),
                 this.toGame()
             )
 
@@ -119,6 +119,15 @@ class Loading extends Component {
         }
         
     }
+
+    setJudge = () => {
+        let modifiedUsers = this.props.users
+        let index = Math.floor ( Math.random() * this.props.users.length )
+        modifiedUsers[index].judge = true
+        this.props.setJudge(modifiedUsers)
+    }
+
+
     toGame(){
         setTimeout(()=>{
             this.setState({
@@ -170,4 +179,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{addPlayer})(Loading);
+export default connect(mapStateToProps,{addPlayer, setJudge})(Loading);
