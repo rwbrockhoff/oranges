@@ -19,6 +19,8 @@ const READYPLAYER = 'READYPLAYER';
 const SETJUDGE = 'SETJUDGE';
 const UPDATEJUDGE = 'UPDATEJUDGE';
 const UPDATEQCARD = 'UPDATEQCARD';
+const UPDATESCARD = 'UPDATESCARD';
+const UPDATEACARDS = 'UPDATEACARDS';
 
 export const storeQCard = (card) => ({
 type: STOREQCARD,
@@ -66,6 +68,16 @@ type: UPDATEQCARD,
 payload: card
 })
 
+export const updateSCard = (card) => ({
+  type: UPDATESCARD,
+  payload: card
+})
+
+export const updateACards = (card) => ({
+  type: UPDATEACARDS,
+  payload: card
+})
+
 
 
 
@@ -99,6 +111,12 @@ switch (action.type) {
 
     case UPDATEQCARD:
     return Object.assign({}, state, {qCard: action.payload})
+
+    case UPDATESCARD:
+    return Object.assign({}, state, {sCards: action.payload})
+
+    case UPDATEACARDS:
+    return Object.assign({}, state, {aCards: action.payload})
 
 default:
   return state
