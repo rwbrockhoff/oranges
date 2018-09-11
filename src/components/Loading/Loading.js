@@ -156,10 +156,17 @@ class Loading extends Component {
                 {this.state.waitingPlayers.map(e => {
                     // console.log('e',e)
                     return(
-                    <div className="waitingOnBubble">
-                    <div className="image-div-loading">
-                        <img className='userImageLoading' src={e.userPic} />
-                        </div>
+                    <div className="userbubble">
+                    {/* <div className="image-div-loading"> */}
+                    <div className="main-image-div">
+                    <div className="stem-new"></div>
+                    <div className="leaf1-new"></div>
+                    <div className="leaf2-new"></div>
+                    <div className="image-div">
+                        <img className='userImage' src={e.userPic} />
+                    </div>
+                    </div>
+                        {/* </div> */}
                         {e.user}
                     </div>
                     )
