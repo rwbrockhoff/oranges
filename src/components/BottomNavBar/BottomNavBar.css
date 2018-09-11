@@ -30,5 +30,17 @@ div.sectionOne {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+img.userNavImage{
+    position: absolute;
+    left: 5%;
+    border-radius: 50px;
+}
+
+.score{
+    position: absolute;
+    right: 10%;
+    font-weight: 800;
 }
