@@ -35,7 +35,11 @@ class NewGames extends Component {
 
         socket.on('get-me-players', ()=>{
           if(this.props.users[0]) {
+<<<<<<< HEAD
             socket.emit('here-are-players', {players: this.props.users})
+=======
+            socket.emit('here-are-players', {players: this.props.users, room: this.props.room})
+>>>>>>> master
           }
         })
 
@@ -48,6 +52,14 @@ class NewGames extends Component {
           socket.emit('readyPlayers-array', {players: this.props.readyPlayers, room: this.props.room})
         })
 
+        socket.on('add-players', data => {
+          this.props.addPlayer(data.data.players)
+        })
+
+        socket.on('here-are-readyPlayers', data => {
+          this.props.readyPlayer(data)
+        })
+
 
 
     }
@@ -58,6 +70,7 @@ class NewGames extends Component {
       })
       socket.emit('join-room', {room:this.props.room})
 
+<<<<<<< HEAD
       socket.on('add-players', data => {
         this.props.addPlayer(data.data.players)
       })
@@ -66,6 +79,15 @@ class NewGames extends Component {
       socket.on('here-are-readyPlayers', data => {
         this.props.readyPlayer(data)
       })
+=======
+      // socket.on('add-players', data => {
+      //   this.props.addPlayer(data.data.players)
+      // })
+      socket.emit('receive-ready-players', {room: this.props.room})
+      // socket.on('here-are-readyPlayers', data => {
+      //   this.props.readyPlayer(data)
+      // })
+>>>>>>> master
 
     }
     
@@ -120,17 +142,24 @@ class NewGames extends Component {
         )}
 
       // If they submitted userName, render a ready message.
-      else {
+      else if (this.state.userNameSubmit && this.props.users.length > 1) {
         return (
           <div className="readymessage wow fadeInUp">
         <h2 className="readyMessage">Join when ready.</h2>
         </div>
         )
       }
+      else if(this.state.userNameSubmit){
+        return(
+        <div className="readymessage wow fadeInUp">
+        <h2 className="readyMessage">Waiting for more players</h2>
+        </div>
+        )
+      }
     }
 
     var userButtonReady = () => {
-      if (this.state.userNameSubmit){
+      if (this.state.userNameSubmit && this.props.users.length > 1){
         return (
           <div>
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
@@ -152,7 +181,9 @@ class NewGames extends Component {
           console.log('elementuser',element)
           return(
             <div className="userbubble">
+            <div className="image-div">
               <img className='userImage' src={element.userPic} />
+              </div>
               {element.user}
             </div>
           )

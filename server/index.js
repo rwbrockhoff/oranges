@@ -50,8 +50,12 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
 
         socket.on('here-are-players', data =>{
+<<<<<<< HEAD
             io.emit('add-players', {data})
             // emitting to everyone. change over to room. 
+=======
+            io.in(data.room).emit('add-players', {data})
+>>>>>>> master
         })
 
         socket.on('add-user', data =>{
