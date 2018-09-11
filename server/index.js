@@ -87,6 +87,10 @@ massive(process.env.CONNECTION_STRING).then(db=>{
             io.in(data.room).emit('total-scards', data.sCards)
 
         })
+        
+        socket.on('user-with-points', data => {
+            io.in(data.room).emit('updated-users', data.users)
+        })
     })
 
 })

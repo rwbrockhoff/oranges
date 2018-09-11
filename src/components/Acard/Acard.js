@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Acard.css';
 import axios from 'axios';
-import {storeACard, updateSCard, updateACards} from '../../ducks/reducer'
+import {storeACard, updateSCard, updateACards, addPlayer} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
@@ -16,6 +16,10 @@ class Acard extends Component {
     
         socket.on('total-scards', data => {
             this.props.updateSCard(data)
+        })
+
+        socket.on('updated-users', data => {
+            this.props.addPlayer(data)
         })
     }
 
@@ -68,13 +72,36 @@ class Acard extends Component {
             swal({
                 title: "You little Cheat!",
                 type: 'error',
-                test: 'You already played a card'
+                text: 'You already played a card'
             })
         }
 
     }
 
-
+    pickWinner(card){
+        swal({
+            title: "Submit card?",
+            text: "Do you wanna send it?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Send Away!'
+        }).then((res)=>{
+            if(res.value === true){
+                let winningCard = this.props.sCards.filter(theCard => {
+                    return theCard.id === card
+                })
+                let usersCopy = this.props.users.map(e => {
+                    if(e.user === winningCard[0].user){
+                        e.score += 1
+                    }
+                    return e;
+                })
+                this.props.addPlayer(usersCopy)
+                socket.emit('user-with-points', {room: this.props.room, users: this.props.users})
+            }})
+    }
 
   render() {
       let displayACards = this.props.aCards.map((e,i) => {
@@ -92,7 +119,7 @@ class Acard extends Component {
       })
       let displayAnswers = this.props.sCards.map((e, i) => {
           return (
-              <div key={e.id} id='Acards' role='menuitem'
+              <div onClick={() => this.pickWinner(e.id)} key={e.id} id='Acards' role='menuitem'
               tabIndex={i}>
               <h2>{e.name}</h2>
                 <br />
@@ -155,4 +182,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {storeACard, updateSCard, updateACards})(Acard)
+export default connect(mapStateToProps, {storeACard, updateSCard, updateACards, addPlayer})(Acard)
