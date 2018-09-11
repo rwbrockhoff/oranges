@@ -72,6 +72,17 @@ massive(process.env.CONNECTION_STRING).then(db=>{
             socket.in(data.room).broadcast.emit
             ('here-are-readyPlayers', data.players)
         })
+
+        socket.on('updateQCard', data => {
+            socket.join(data.room)
+
+            console.log('datain update', data)
+
+            // socket.in(data.room).broadcast.emit('getQCard', {qCard: 'hello'})
+
+            io.in(data.room).emit('getQCard', {qCard: data.qCard})
+       
+        })
     })
 
 })
