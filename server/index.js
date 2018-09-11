@@ -81,6 +81,12 @@ massive(process.env.CONNECTION_STRING).then(db=>{
             socket.join(data.room)
             io.in(data.room).emit('getQCard', {qCard: data.qCard})
         })
+
+        socket.on('added-scard', data => {
+            socket.join(data.room)
+            io.in(data.room).emit('total-scards', data.sCards)
+
+        })
     })
 
 })
