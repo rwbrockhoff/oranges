@@ -30,5 +30,11 @@ div.sectionOne {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.score{
+    position: absolute;
+    right: 10%;
+    font-weight: 800;
 }

@@ -81,8 +81,8 @@ class NewGames extends Component {
         return element.user
       })
       if(names.indexOf(this.state.input) === -1){
-        socket.emit('add-user', {userName: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, room:this.props.room})
-        this.props.storeUser({user: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, judge: false})
+        socket.emit('add-user', {userName: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, room:this.props.room, score: 0})
+        this.props.storeUser({user: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, judge: false, score: 0})
         this.setState({userNameSubmit: true})
       } else {
         alert('already used ya idiot')

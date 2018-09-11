@@ -17,3 +17,14 @@ div.winner h1 {
 div.winner h2 {
     font-size: 2em;
 }
+
+img.userEndImage{
+    position: absolute;
+    left: 10%;
+    border-radius: 50px;
+}
+
+.endscore{
+    position: absolute;
+    right: 15%;
+}

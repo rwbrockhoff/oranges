@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import './BottomNavBar.css'
+import {connect} from 'react-redux';
 
 
-export default class BottomNavBar extends Component {
+class BottomNavBar extends Component {
   render() {
     return (
       <div className='container'>
@@ -10,8 +11,10 @@ export default class BottomNavBar extends Component {
         <div className='bottomNav'>
 
         <div className='sectionOne'>
+        <img className='userImage' src={this.props.user.userPic} />
         <i className="fas fa-home"/>
         <p>Home</p>
+        <h4 className='score' >{this.props.user.score}</h4>
         </div>
 
         </div>
@@ -21,3 +24,11 @@ export default class BottomNavBar extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return{
+    user: state.user
+  }
+}
+
+
+export default connect(mapStateToProps)(BottomNavBar)
