@@ -22,10 +22,7 @@ class Qcard extends Component {
         socket.emit('join-room-generic', {room: this.props.room})
 
         let obj = this.arrayGet()
-        console.log('obj', obj[0])
-        console.log('pro', this.props.user.user)
-        
-
+       
         if (obj[0].user === this.props.user.user){
             alert('The doggo!')
             this.setter()

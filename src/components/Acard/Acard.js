@@ -16,6 +16,17 @@ class Acard extends Component {
        var middle = document.getElementsByClassName('3')
        
     }
+
+    arrayGet(){
+
+        var userArray = this.props.users;
+        
+            var temp = userArray.filter((e,i) => {
+                return e.judge===true
+            })
+            return temp
+    }
+
   render() {
       let displayACards = this.props.aCards.map((e,i) => {
           return(
@@ -30,6 +41,32 @@ class Acard extends Component {
               </div>
           )
       })
+      let displayAnswers = this.props.sCards.map((e, i) => {
+          return (
+              <div key={e[i].id} id='Answercards' role='menuitem'
+              tabIndex={i}>
+              <h2>{e[0].name}</h2>
+                <br />
+                <h4>{e[0].description}</h4>
+              </div>
+          )
+      })
+      let displayView = () => {
+        let obj = this.arrayGet()
+       
+        if (obj[0].user === this.props.user.user){
+            return displayAnswers
+        }
+
+        else {
+            return displayACards
+        }
+
+
+      }
+
+      
+
     return (
       <div className='Acard-App'>
           <StyleRoot>
@@ -54,7 +91,7 @@ class Acard extends Component {
                             }
                         }}
                     >
-                        {displayACards}
+                        {displayView()}
                     </Coverflow>
                 </StyleRoot>
       </div>
@@ -64,7 +101,7 @@ class Acard extends Component {
 
 function mapStateToProps(state){
     return {
-        aCards: state.aCards
+        ...this.props, ...state
     }
 }
 
