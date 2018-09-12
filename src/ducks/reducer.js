@@ -7,7 +7,7 @@ const initialState = {
   sCards: [],
   qCard: [],
   readyPlayers: [],
-  user: {}
+  user: {user: "default", userPic: "https://api.adorable.io/avatars/50/a.png", judge: false, score: 0}
 }
 
 const STOREQCARD = 'STOREQCARD';
