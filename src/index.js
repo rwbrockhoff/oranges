@@ -17,6 +17,7 @@ import NewGame from './components/NewGames/NewGames';
 import Pending from './components/Pending/Pending';
 import CreateRoom from './components/CreateRoom/CreateRoom';
 import BottomNav from './components/BottomNavBar/BottomNavBar';
+import WinnerIs from './components/WinnerIs/WinnerIs'
 
 
 ReactDOM.render(
@@ -79,6 +80,12 @@ ReactDOM.render(
                     <div>
                         <EndGame />
                         <BottomNav />
+                    </div>
+                )} />
+
+                <Route path='/Winner' render={() => (
+                    <div>
+                        <WinnerIs/>
                     </div>
                 )} />
 

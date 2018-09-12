@@ -7,12 +7,17 @@ import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
 import swal from 'sweetalert2';
 import io from 'socket.io-client';
+import {Redirect} from 'react-router-dom'
 
 const socket = io.connect('http://localhost:3020')
 
 class Acard extends Component {
     constructor(){
         super()
+        this.state = {
+            toWaiting: false,
+            toPending: false
+        }
     
         socket.on('total-scards', data => {
             this.props.updateSCard(data)
@@ -20,6 +25,9 @@ class Acard extends Component {
 
         socket.on('updated-users', data => {
             this.props.addPlayer(data)
+            this.setState({
+                toWaiting: true
+            })
         })
     }
 
@@ -66,6 +74,7 @@ class Acard extends Component {
                         return myCards[0].id !== card
                     })
                     this.props.updateACards(newArr)
+                    this.setState({toPending: true})
                 }
             })
         } else {
@@ -170,6 +179,8 @@ class Acard extends Component {
                         {displayView()}
                     </Coverflow>
                 </StyleRoot>
+                {this.state.toWaiting ? <Redirect to="/Winner"/> : ''}
+                {this.state.toPending ? <Redirect to="/Pending"/> : ''}
       </div>
     )
   }
