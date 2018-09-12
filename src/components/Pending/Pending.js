@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './Pending.css';
-
+import {connect} from 'react-redux'
 import { css } from 'react-emotion';
 import { PacmanLoader } from 'react-spinners';
+import io from 'socket.io-client'
+import {Redirect} from 'react-router-dom'
+import {addPlayer} from '../../ducks/reducer'
 
 const override2 = css`
     display: block;
@@ -12,12 +15,26 @@ const override2 = css`
     padding-top: 0px;
 `;
 
-export default class Pending extends Component {
+const socket = io.connect('http://localhost:3020')
+
+class Pending extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: true,
+            toWaiting: false
         }
+
+
+        socket.on('updated-users-pending', data => {
+            this.props.addPlayer(data)
+            this.setState({
+                toWaiting: true
+            })
+        })
+    }
+    componentDidMount(){
+        socket.emit('join-room-generic', {room:this.props.room})
     }
     render() {
         return (
@@ -34,7 +51,15 @@ export default class Pending extends Component {
                 <div className='Pending-Text'>
                 <h2><strong>Waiting for other Players...</strong></h2>
                 </div>
+                {this.state.toWaiting ? <Redirect to="/Winner" /> : ''}
             </div>
         );
     }
 }
+function mapStateToProps(state){
+    return {
+        ...this.props, ...state
+    }
+}
+
+export default connect(mapStateToProps, {addPlayer})(Pending)
