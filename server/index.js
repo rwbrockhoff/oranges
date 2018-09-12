@@ -92,6 +92,15 @@ massive(process.env.CONNECTION_STRING).then(db=>{
             io.in(data.room).emit('updated-users', data.users)
             io.in(data.room).emit('updated-users-pending', data.users)
         })
+
+        socket.on('going-to-next-round', data =>{
+            io.in(data.room).emit('lets-go-to-next-round')
+        })
+
+        socket.on('next-judge', data => {
+            
+            io.in(data.room).emit('heres-your-next-judge', data.users)
+        })
     })
 
 })

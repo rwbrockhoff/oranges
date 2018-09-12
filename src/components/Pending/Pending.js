@@ -36,7 +36,13 @@ class Pending extends Component {
     componentDidMount(){
         socket.emit('join-room-generic', {room:this.props.room})
     }
+
+    
+
+
     render() {
+        
+
         return (
             <div className='Pending-App'>
                 <div className='Pending-Icon'>
@@ -51,7 +57,7 @@ class Pending extends Component {
                 <div className='Pending-Text'>
                 <h2><strong>Waiting for other Players...</strong></h2>
                 </div>
-                {this.state.toWaiting ? <Redirect to="/Winner" /> : ''}
+                {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
             </div>
         );
     }
