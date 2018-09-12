@@ -12,7 +12,9 @@ class Endgame extends Component {
   constructor(){
     super()
     this.state = {
-      nextRound: false
+      nextRound: false,
+      winner: false,
+      toHome: false
     }
 
     socket.on('lets-go-to-next-round', ()=>{
@@ -32,6 +34,14 @@ class Endgame extends Component {
   }
   componentDidMount(){
     socket.emit('join-room-generic', {room:this.props.room})
+    let winner = this.props.users.filter(user => {
+      return user.score === 2
+    })
+    if(winner[0]){
+      this.setState({
+        winner: true
+      })
+    }
   }
 
   nextRound(){
@@ -44,12 +54,16 @@ class Endgame extends Component {
 
     socket.emit('going-to-next-round', {room:this.props.room})
   }
+  toHome(){
+    this.setState({
+      toHome: true
+    })
+  }
 
   render() {
     
     var scoreArray = _.sortBy(this.props.users, ['score']).reverse()
     
-
     var displayUsers = scoreArray.map((e,i) => {
       return(
         
@@ -70,9 +84,16 @@ class Endgame extends Component {
     })
     return (
       <div className="endgame">
+      {this.state.winner ? <h1>Winner!!!</h1> : ''}
         {displayUsers}
-       <button onClick={()=>this.nextRound()} className="green">Next Round</button>
+       {this.state.winner ? 
+        <div>
+        <button className="green">New Game</button>
+        <button onClick={()=>this.toHome()}className="green">Exit</button>
+        </div>
+       : <button onClick={()=>this.nextRound()} className="green">Next Round</button>}
        {this.state.nextRound ? <Redirect to="/Game"/> : ''}
+       {this.state.toHome ? <Redirect to="/"/> : ''}
       </div>
     )
   }
