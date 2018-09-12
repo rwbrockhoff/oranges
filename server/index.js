@@ -68,7 +68,6 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
 
         socket.on('readyPlayers-array', data => {
-            console.log('ry-players', data, data.players)
             socket.in(data.room).broadcast.emit
             ('here-are-readyPlayers', data.players)
         })

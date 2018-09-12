@@ -2,6 +2,8 @@
 
 div.newgames {
   height: 100vh;
+  max-height: 100vh;
+  overflow-y: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +78,8 @@ div.roomid {
     top: 5vh;
     font-family: 'Open Sans';
     font-weight: 600;
-    font-size: 2em;
+    width: fit-content;
+    text-align: center;
 }
 
 div.readymessage {

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {addPlayer, storeUser, readyPlayer} from '../../ducks/reducer'
 import io from 'socket.io-client'
 import WOW from 'wowjs'
+import { GridLoader } from 'react-spinners';
 import './NewGames.css'
 import {Redirect, Link} from 'react-router-dom';
 import { notDeepEqual } from 'assert';
@@ -19,7 +20,8 @@ class NewGames extends Component {
             players: [],
             toLoading: false,
             userNameSubmit: false,
-            cancelGame: false
+            cancelGame: false,
+            readyMessage: 'Join when ready'
         }
 
         socket.on('user-added', data =>{
@@ -80,7 +82,7 @@ class NewGames extends Component {
 
 
     createUser(){
-      // console.log(this.state.input)
+      
       let names = this.props.users.map(element => {
         return element.user
       })
@@ -88,9 +90,12 @@ class NewGames extends Component {
         socket.emit('add-user', {userName: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, room:this.props.room, score: 0})
         this.props.storeUser({user: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, judge: false, score: 0})
         this.setState({userNameSubmit: true})
-      } else {
+      } 
+      
+      else {
         alert('already used ya idiot')
       }
+
     }
 
     async readyClick(){
@@ -99,6 +104,7 @@ class NewGames extends Component {
       copyReady.push(this.props.user)
       await this.props.readyPlayer(copyReady)
       socket.emit('ready-player', {players: this.props.readyPlayers, room:this.props.room})
+      this.setState({readyMessage: 'Loading...'})
       setTimeout(() => {
         this.setState({toLoading: true})
       }, 1000)
@@ -133,7 +139,7 @@ class NewGames extends Component {
       else if (this.state.userNameSubmit && this.props.users.length > 1) {
         return (
           <div className="readymessage wow fadeInUp">
-        <h2 className="readyMessage">Join when ready.</h2>
+        <h2 className="readyMessage">{this.state.readyMessage}</h2>
         </div>
         )
       }

@@ -4,15 +4,27 @@ import axios from 'axios';
 import {storeACard, updateSCard, updateACards} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import Coverflow from 'react-coverflow';
+import { DotLoader } from 'react-spinners';
+import { css } from 'react-emotion';
 import { StyleRoot } from 'radium';
 import swal from 'sweetalert2';
 import io from 'socket.io-client';
 
 const socket = io.connect('http://localhost:3020')
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+    padding-top: 10px;
+`;
+
 class Acard extends Component {
     constructor(){
         super()
+        this.state = {
+            loading: true
+        }
     
         socket.on('total-scards', data => {
             this.props.updateSCard(data)
@@ -100,11 +112,33 @@ class Acard extends Component {
               </div>
           )
       })
+
+      let displayPending = () => {
+        return (
+            <div className='Loading-Icon'>
+                    <DotLoader
+                        className={override}
+                        sizeUnit={"px"}
+                        size={60}
+                        color={'#AFAFAF'}
+                        loading={this.state.loading}
+                    />
+                </div>
+        )
+      }
+
+
       let displayView = () => {
         let obj = this.arrayGet()
        
         if (obj[0].user === this.props.user.user){
-            return displayAnswers
+            if(this.props.sCards.length < 1){
+                return displayPending()
+            }
+            else {
+                return displayAnswers
+            }
+            
         }
 
         else {
