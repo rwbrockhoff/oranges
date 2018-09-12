@@ -1,7 +1,16 @@
 div.endgame {
-    background:linear-gradient(#FFC53A, #F97400);
+    background: linear-gradient(#87ceeb, #00a6e8);
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+div.EndRound {
+    height: 10vh;
 }
 
 div.winner {
@@ -28,3 +37,4 @@ img.userEndImage{
     position: absolute;
     right: 15%;
 }
+

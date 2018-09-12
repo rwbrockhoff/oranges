@@ -32,10 +32,19 @@ class Acard extends Component {
     }
 
     componentDidMount(){
+        
         socket.emit('join-room-generic', {room:this.props.room})
-        axios.post('/api/getacard', {numOfCards: 5}).then(results => {
-            this.props.storeACard(results.data);
-        })
+        this.props.updateSCard([])
+
+        
+        if(this.props.aCards.length < 5){
+            axios.post('/api/getacard', {numOfCards: 5 - this.props.aCards.length }).then(results => {
+            
+                let tempArray = this.props.aCards.slice(0).concat(results.data)
+                this.props.storeACard(tempArray);
+            })
+        }
+        
        var middle = document.getElementsByClassName('3')
        
     }
@@ -179,7 +188,7 @@ class Acard extends Component {
                         {displayView()}
                     </Coverflow>
                 </StyleRoot>
-                {this.state.toWaiting ? <Redirect to="/Winner"/> : ''}
+                {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
                 {this.state.toPending ? <Redirect to="/Pending"/> : ''}
       </div>
     )

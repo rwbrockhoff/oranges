@@ -1,10 +1,40 @@
 import React, { Component } from 'react'
 import './BottomNavBar.css'
 import {connect} from 'react-redux';
+import {storeUser} from '../../ducks/reducer'
 
 
 class BottomNavBar extends Component {
+  constructor(){
+    super()
+    this.state = {
+      score: 0
+    }
+  }
+
+  // componentDidMount(){
+  //   let currentUser = this.props.users.filter(e => {
+  //     return e.user === this.props.user.user
+  //   })
+  //   this.props.storeUser(currentUser)
+  // }
+
+  // componentDidUpdate(prevProps){
+
+  //   if(prevProps.users !== this.props.users){
+
+  //     let currentUser = this.props.users.filter(e => {
+  //       return e.user === this.props.user.user
+  //     })
+  //     console.log(currentUser)
+  //     this.props.storeUser(currentUser)
+
+  //   }
+    
+  // }
+
   render() {
+    
     return (
       <div className='container'>
           
@@ -33,9 +63,9 @@ class BottomNavBar extends Component {
 
 function mapStateToProps(state){
   return{
-    user: state.user
+    ...this.props, ...state
   }
 }
 
 
-export default connect(mapStateToProps)(BottomNavBar)
+export default connect(mapStateToProps, {storeUser})(BottomNavBar)
