@@ -11,6 +11,7 @@ class BottomNavBar extends Component {
         <div className='bottomNav'>
 
         <div className='sectionOne'>
+
         <div className="main-image-div">
             <div className="stem-new"></div>
             <div className="leaf1-new"></div>
@@ -18,6 +19,7 @@ class BottomNavBar extends Component {
             <div className="image-div">
         <img className='userImage' src={this.props.user.userPic} />
         </div>
+        
         </div>
         <i className="fas fa-home"/>
         <p>Home</p>
