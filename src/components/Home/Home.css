@@ -223,19 +223,19 @@ bottom: 110%; z-index:2;}
 }
 #cloud2 {
   top: 35px;
-  left: -70px;
+  left: -100px;
   width: 70px;
   height: auto;
   position: absolute;
   animation-name: moveLeft;
-  animation-duration: 22s;
+  animation-duration: 26s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-delay: 6s;
 }
 #cloud3 {
   top: 190px;
-  right: -70px;
+  right: -100px;
   width: 70px;
   height: auto;
   position: absolute;
@@ -258,7 +258,7 @@ bottom: 110%; z-index:2;}
   animation-delay: 10s;
 }
 @keyframes moveLeft {
-  0% {transform: translateX(0px)}
+  0% {transform: translateX(-100px)}
   10% {transform: translateX(100px)}
   20% {transform: translateX(200px)}
   30% {transform: translateX(300px)}
@@ -271,7 +271,7 @@ bottom: 110%; z-index:2;}
   100% {transform: translateX(1000px)}
 }
 @keyframes moveRight {
-  0% {transform: translateX(0px)}
+  0% {transform: translateX(-100px)}
   10% {transform: translateX(-100px)}
   20% {transform: translateX(-200px)}
   30% {transform: translateX(-300px)}

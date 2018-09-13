@@ -12,6 +12,7 @@ div.bottomNav {
     height: 7vh;
     background: white;
     padding-top: 5px;
+    padding-bottom: 5px;
     position: absolute;
     bottom: 0;
     color: black;
@@ -19,9 +20,14 @@ div.bottomNav {
     justify-content: center;
 }
 
+div.main-image-div {
+    margin-top: 5px;
+}
+
 div.bottomNav i {
     color: black;
     margin-bottom: 2px;
+    font-size: 1.4em;
 }
 
 div.sectionOne {
@@ -30,7 +36,8 @@ div.sectionOne {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
+    
 }
 
 img.userNavImage{

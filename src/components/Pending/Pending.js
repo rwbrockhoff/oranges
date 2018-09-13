@@ -54,6 +54,13 @@ class Pending extends Component {
                         loading={this.state.loading}
                     />
                 </div>
+
+                 
+        <img id="cloud1" src={require("../../assets/clouds.png")}/>
+        <img id="cloud2" src={require("../../assets/clouds.png")}/>
+        <img id="cloud3" src={require("../../assets/clouds.png")}/>
+        <img id="cloud4" src={require("../../assets/clouds.png")}/>
+               
                 <div className='Pending-Text'>
                 <h2><strong>Waiting for other Players...</strong></h2>
                 </div>

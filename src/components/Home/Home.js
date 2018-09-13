@@ -31,10 +31,10 @@ export default class Home extends Component {
         <Link to="/Join-Game" ><center><button className='green'>Join Game</button></center></Link>
         </div>
         <div class="image-area">
-        <img id="cloud1" src={require("../../assets/cloud.png")}/>
-        <img id="cloud2" src={require("../../assets/cloud.png")}/>
-        <img id="cloud3" src={require("../../assets/cloud.png")}/>
-        <img id="cloud4" src={require("../../assets/cloud.png")}/>
+        <img id="cloud1" src={require("../../assets/clouds.png")}/>
+        <img id="cloud2" src={require("../../assets/clouds.png")}/>
+        <img id="cloud3" src={require("../../assets/clouds.png")}/>
+        <img id="cloud4" src={require("../../assets/clouds.png")}/>
         <div id="front-hill"></div>
         <div id="middle-hill"></div>
         <div id="back-hill"></div>
