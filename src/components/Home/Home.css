@@ -24,12 +24,17 @@ div.home {
 div.logo {
   opacity: 0;
   font-size: 40px;
+  height: 50%;
   margin-top: 50px;
   animation-name: appear;
   animation-delay: 4s;
   animation-fill-mode: forwards;
   animation-duration: 3s;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: beige;
+
 }
 
 div.homebox {
@@ -64,7 +69,8 @@ div.homebox {
 	-moz-border-radius: 100px;
 	
 	position: relative;
-	margin: 170px auto -40px;
+  margin: 170px auto -80px;
+  margin-top: 190px;
 }
 
 div.homebox:after, div.homebox:before {
@@ -92,6 +98,13 @@ div.homebox:before {
 	-moz-border-radius: 200px;
 }
 
+img.logoicon {
+  width: 400px;
+  padding: 0px 50px;
+  position: absolute;
+  top: 10px;
+  z-index: 5;
+}
 
 center button.green {
   background: #279AF1;

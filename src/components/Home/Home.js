@@ -18,9 +18,9 @@ export default class Home extends Component {
     return (
       <div className="black-fade">
       <div className="home">
-        <div className="logo">
-        <h1>oranges to oranges </h1>
-        </div>
+        
+          <img className="logoicon" src={require("../../assets/logo.png")}/>
+        
 
         {/* data-wow-delay="4.5s" */}
         <div className="homebox wow fadeInRight"  data-wow-duration="1s">
