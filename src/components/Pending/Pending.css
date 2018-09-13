@@ -39,6 +39,7 @@
   width: 100px;
   height: auto;
   position: absolute;
+  z-index: 5;
   animation-name: moveLeft;
   animation-duration: 22s;
   animation-timing-function: linear;
