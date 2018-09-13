@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './BottomNavBar.css'
 import {connect} from 'react-redux';
 import {storeUser} from '../../ducks/reducer'
+import {Link} from 'react-router-dom'
 
 
 class BottomNavBar extends Component {
@@ -67,9 +68,12 @@ class BottomNavBar extends Component {
         </div> 
         
      
-
+        <Link to="/">
+        <div className="home-button">
         <i className="fas fa-home"/>
         <p>Home</p>
+        </div>
+        </Link>
         
         {this.props.users[this.state.index] && <h4 className='score' >{this.props.users[this.state.index].score}</h4>}
     

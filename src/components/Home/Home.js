@@ -2,9 +2,22 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import './Home.css'
 import WOW from 'wowjs'
+import opener from '../Music/Sounds/opener.mp3'
+import popping from '../Music/Sounds/Oranges.mp3'
+import Sound from 'react-sound'
 
 
 export default class Home extends Component {
+  constructor(){
+    super()
+    this.state = {
+      sound: true,
+    }
+    this.openerUrl = opener
+    this.poppingUrl = opener
+    this.openerAudio = new Audio(this.openerUrl)
+    this.poppingAudio = new Audio(this.poppingUrl)
+  }
 
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
@@ -17,17 +30,19 @@ export default class Home extends Component {
 
     return (
       <div className="black-fade">
+      <audio ref='audio_tag' src={popping} autoPlay/>
       <div className="home">
+      <audio ref='audio_tag' src={opener} autoPlay/>
+
         
           <img className="logoicon" src={require("../../assets/logo.png")}/>
         
 
-        {/* data-wow-delay="4.5s" */}
-        <div className="homebox wow fadeInRight"  data-wow-duration="1s">
+        <div className="homebox wow fadeInRight"  data-wow-delay="4.5s"  data-wow-duration="1s">
         <Link to="/Create-Room"><center><button className='green'>New Game</button></center></Link>
         </div>
 
-        <div className="homebox wow fadeInLeft"  data-wow-duration="1s">
+        <div className="homebox wow fadeInLeft"  data-wow-delay="4.5s"  data-wow-duration="1s">
         <Link to="/Join-Game" ><center><button className='green'>Join Game</button></center></Link>
         </div>
         <div class="image-area">
@@ -99,10 +114,18 @@ export default class Home extends Component {
                 </div>
                   </div>
                 </div>
-                {this.orangeTimer = window.setTimeout(function(){
+                {this.orangeTimer = setTimeout(function(){
       document.getElementById('o5').id = 'o6'
       },4000)}
+
       </div>
+      {/* {this.state.sound ? <Sound
+      url={opener}
+      playStatus={Sound.status.PLAYING}
+      onLoading={this.handleSongLoading}
+      onPlaying={this.handleSongPlaying}
+      onFinishedPlaying={this.handleSongFinishedPlaying}
+    /> : '' } */}
       </div>
     );
   }
