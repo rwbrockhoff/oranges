@@ -19,6 +19,7 @@ div.home {
   background: skyblue;
   color: #ffffff;
   font-family: 'Bangers', cursive;
+  overflow: hidden;
 }
 
 div.logo {
@@ -35,6 +36,11 @@ div.logo {
   align-items: center;
   background: beige;
 
+}
+.volume-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 div.homebox {
@@ -99,8 +105,8 @@ div.homebox:before {
 }
 
 img.logoicon {
-  width: 400px;
-  padding: 0px 50px;
+  width: 375px;
+  /* padding: 0px 50px; */
   position: absolute;
   top: 10px;
   z-index: 5;

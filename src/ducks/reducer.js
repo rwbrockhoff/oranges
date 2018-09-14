@@ -8,7 +8,7 @@ const initialState = {
   qCard: [],
   readyPlayers: [],
   user: {user: "default", userPic: "https://api.adorable.io/avatars/50/a.png", judge: false, score: 0},
-  music: false
+  music: true
 }
 
 const STOREQCARD = 'STOREQCARD';
@@ -126,7 +126,7 @@ switch (action.type) {
     return Object.assign({}, state, {aCards: action.payload})
 
     case LOGMUSIC:
-    return Object.assign({}, state, {music: true})
+    return Object.assign({}, state, {music: !state.music})
 
 default:
   return state
