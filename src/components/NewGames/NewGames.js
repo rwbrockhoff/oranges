@@ -7,6 +7,7 @@ import './NewGames.css'
 import {Redirect, Link} from 'react-router-dom';
 import { notDeepEqual } from 'assert';
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
+import Speaker from '../Speaker/Speaker'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -64,6 +65,7 @@ class NewGames extends Component {
 
     }
     componentDidMount(props){
+
       this.setState({
         roomId: this.props.room,
         players: this.props.users
@@ -77,6 +79,9 @@ class NewGames extends Component {
       // socket.on('here-are-readyPlayers', data => {
       //   this.props.readyPlayer(data)
       // })
+
+      console.log(this.props.musicClass)
+      console.log(document.getElementsByTagName('audio'))
 
     }
     
@@ -117,7 +122,7 @@ class NewGames extends Component {
     }
 
   render(props) {
-
+    <audio preload="auto" src="/static/media/buttonClick.9ce4170e.mp3"></audio>
     //Initiate WOW on Render
     const wow = new WOW.WOW();
      wow.init();
@@ -164,6 +169,8 @@ class NewGames extends Component {
   
     return (
       <div className="newgames">
+      <Speaker />
+      {/* <audio muted src={this.props.musicClass}></audio> */}
         <div className="roomid">
         <h1>Room ID: {this.state.roomId}</h1>
         </div>
@@ -207,7 +214,8 @@ function mapStateToProps(state){
     room: state.room,
     users: state.users,
     user: state.user,
-    readyPlayers: state.readyPlayers
+    readyPlayers: state.readyPlayers,
+    musicClass: state.musicClass
   }
 }
 export default connect(mapStateToProps, {addPlayer, storeUser, readyPlayer})(NewGames);

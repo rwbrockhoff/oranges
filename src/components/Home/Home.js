@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import './Home.css'
 import WOW from 'wowjs'
-import opener from '../Music/Sounds/opener.mp3'
 import popping from '../Music/Sounds/Oranges.mp3'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Sound from 'react-sound'
 import {logMusic} from '../../ducks/reducer'
 import {connect} from 'react-redux';
+import Speaker from '../Speaker/Speaker'
+
 
 
 class Home extends Component {
@@ -15,10 +16,10 @@ class Home extends Component {
     super()
     this.state = {
       sound: true,
+      playbackFailed: false
     }
-    this.openerUrl = opener
+
     this.poppingUrl = buttonClick
-    this.openerAudio = new Audio(this.openerUrl)
     this.poppingAudio = new Audio(this.poppingUrl)
     
   }
@@ -26,24 +27,15 @@ class Home extends Component {
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
     this.poppingAudio.play()
-    // if(this.openerAudio.play()){
-      this.props.logMusic()
-    // } else if(this.props.music === true){
-      // this.openerAudio.pause()
+    // if(this.state.playbackFailed=== false){
+    //   this.props.logMusic()
+    //   console.log(this.poppingAudio.src)
+    //   console.log(this.poppingAudio)
     // }
   }
 
-  componentDidMount(){
-    console.log(this.props.music)
-    this.openerAudio.pause()
-    if(this.props.music === false){
-      this.openerAudio.loop = true
-      this.openerAudio.play()
-      this.openerAudio.volume = 0.4
-    } else {
-      this.openerAudio.pause()
-    }
-
+  shouldComponentUpdate(){
+    false
   }
 
   render(props) {
@@ -55,14 +47,13 @@ class Home extends Component {
       <div className="black-fade">
       <audio ref='audio-tag' src={popping} autoPlay />
       <div className="home">
-      {/* <audio id="theme-music" ref='audio_tag' src={opener} autoPlay loop/> */}
-
+      <Speaker/>
         
           <img className="logoicon" src={require("../../assets/logo.png")}/>
         
 
         <div className="homebox wow fadeInRight"  data-wow-delay="4.5s"  data-wow-duration="1s">
-        <Link to="/Create-Room"><center><button className='green'>New Game</button></center></Link>
+        <Link to="/Create-Room" ><center><button className='green'>New Game</button></center></Link>
         </div>
 
         <div className="homebox wow fadeInLeft"  data-wow-delay="4.5s"  data-wow-duration="1s">
@@ -141,6 +132,7 @@ class Home extends Component {
       document.getElementById('o5').id = 'o6'
       },4000)}
       </div>
+
       </div>
     );
   }

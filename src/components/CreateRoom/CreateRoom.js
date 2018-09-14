@@ -6,6 +6,7 @@ import {addRoom} from '../../ducks/reducer';
 import {connect} from 'react-redux';
 import axios from 'axios'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
+import Speaker from '../Speaker/Speaker'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -25,6 +26,9 @@ class CreateRoom extends Component {
             toGameRoom: true
           })
         })
+    }
+    componentDidMount(props){
+      console.log(this.props)
     }
 
     createGame(){
@@ -51,6 +55,7 @@ class CreateRoom extends Component {
   render() {
     return (
         <div class='createRoom'>
+        <Speaker />
         <div className="create-room-box">
         <input placeholder='New Game ID' onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.createGame()} className='green'>Create Game</button>

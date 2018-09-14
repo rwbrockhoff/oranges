@@ -6,6 +6,7 @@ import io from 'socket.io-client';
 import {Redirect} from 'react-router-dom';
 import axios from 'axios'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
+import Speaker from '../Speaker/Speaker'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -42,6 +43,7 @@ class JoinGame extends Component {
   render() {
     return (
       <div class='App'>
+      <Speaker />
         <div className="joinbox">
         <input placeholder='Game ID' onChange={(e) => this.setState({input: e.target.value})}/>
         <button onClick={()=>this.joinGame()} className='green'>Join Game</button>

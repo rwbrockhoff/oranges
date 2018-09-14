@@ -18,6 +18,7 @@ import Pending from './components/Pending/Pending';
 import CreateRoom from './components/CreateRoom/CreateRoom';
 import BottomNav from './components/BottomNavBar/BottomNavBar';
 import WinnerIs from './components/WinnerIs/WinnerIs'
+import MusicTheme from './components/MusicTheme/MusicTheme'
 
 
 ReactDOM.render(
@@ -27,18 +28,21 @@ ReactDOM.render(
                 <Route exact path='/' render={() => (
                     <div>
                         <Home/>
+                        <MusicTheme/>
                     </div>
                 )} />
 
                 <Route path='/Create-Room' render={() => (
                     <div>
                         <CreateRoom/>
+                        <MusicTheme/>
                     </div>
                 )} />
                 
                 <Route path='/New-Game' render={() => (
                     <div>
                         <NewGame />
+                        <MusicTheme/>
                         <BottomNav />
                     </div>
                 )} />
@@ -46,6 +50,7 @@ ReactDOM.render(
                 <Route path='/Join-Game' render={() => (
                     <div>
                         <JoinGame />
+                        <MusicTheme/>
                     </div>
                 )} />
 
