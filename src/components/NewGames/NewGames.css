@@ -137,7 +137,7 @@ div.userbox {
 }
 div.userbubble {
     width: 80vw;
-    height: 6vh;
+    height: 6.5vh;
     padding: 5px 5px;
     background: white;
     color: black;
@@ -150,14 +150,15 @@ div.userbubble {
     justify-content: center;
     align-items: center;
     overflow-x: scroll;
+    overflow-y: hidden;
     margin: 10px;
     position: relative;
 }
 
 img.userImage{
     border-radius: 50px;
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     z-index: 100;
 }
 .image-div{
@@ -179,8 +180,8 @@ img.userImage{
     z-index: 101;
 }
 .main-image-div{
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     position: absolute;
     left: 5%;
     top: 18%;
