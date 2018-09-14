@@ -26,14 +26,22 @@ class Home extends Component {
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
     this.poppingAudio.play()
-    this.props.logMusic()
+    // if(this.openerAudio.play()){
+      this.props.logMusic()
+    // } else if(this.props.music === true){
+      // this.openerAudio.pause()
+    // }
   }
 
   componentDidMount(){
+    console.log(this.props.music)
     this.openerAudio.pause()
     if(this.props.music === false){
+      this.openerAudio.loop = true
       this.openerAudio.play()
       this.openerAudio.volume = 0.4
+    } else {
+      this.openerAudio.pause()
     }
 
   }
@@ -133,13 +141,6 @@ class Home extends Component {
       document.getElementById('o5').id = 'o6'
       },4000)}
       </div>
-      {/* {this.state.sound ? <Sound
-      url={opener}
-      playStatus={Sound.status.PLAYING}
-      onLoading={this.handleSongLoading}
-      onPlaying={this.handleSongPlaying}
-      onFinishedPlaying={this.handleSongFinishedPlaying}
-    /> : '' } */}
       </div>
     );
   }
@@ -150,4 +151,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(null, {logMusic})(Home);
+export default connect(mapStateToProps, {logMusic})(Home);
