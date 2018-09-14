@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
 
 .Loading-App {
-  background-color: black;
+  background: linear-gradient(#87ceeb, #00a6e8);  
   height: 90vh;
   width: 100%;
   display: flex;
@@ -12,11 +12,12 @@
   margin-top: 50px;
 }
 .Loading-App h2 {
-  margin-top: 30px;
+  margin-top: 25px;
   text-align: center;
   font-size: 2.5em;
   color: #f2f2f2;
   font-family: 'Gudea', sans-serif;
+  padding: 10px;
 }
 
 .waitingOnPlayers {
