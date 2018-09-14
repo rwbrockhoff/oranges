@@ -29,7 +29,6 @@ componentDidUpdate(prevProps){
 }
 
 componentWillUnmount(){
-    console.log('I am unmounting!!')
     this.openerAudio.pause()
 }
 

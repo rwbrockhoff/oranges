@@ -35,7 +35,7 @@ class Home extends Component {
   }
 
   shouldComponentUpdate(){
-    false
+    return false
   }
 
   render(props) {

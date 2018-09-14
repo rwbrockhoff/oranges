@@ -18,9 +18,9 @@ class Speaker extends Component{
     return (
         <div>
     {this.props.music === true ? 
-      <FontAwesomeIcon onClick={()=>this.toggleMusic()} className="volume-icon" size='2x' icon={faVolumeUp} color="white"/>
+      <FontAwesomeIcon onClick={()=>this.toggleMusic()} className="volume-icon" size='2x' icon={faVolumeUp} color="white" />
       :
-      <FontAwesomeIcon onClick={()=>this.toggleMusic()} className="volume-icon" size='2x' icon={faVolumeOff} color="white"/>
+      <FontAwesomeIcon onClick={()=>this.toggleMusic()} className="volume-icon" size='2x' icon={faVolumeOff} color="white" style={{marginRight: "19px"}}/>
     }
         </div>
     )
