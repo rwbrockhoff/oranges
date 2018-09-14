@@ -171,7 +171,7 @@ class Acard extends Component {
                         displayQuantityOfSide={1}
                         infiniteScroll
                         enableHeading={true}
-                        active={3}
+                        active={0}
 
                         media={{
                             '@media (max-width: 900px)': {
