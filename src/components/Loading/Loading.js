@@ -145,7 +145,7 @@ class Loading extends Component {
                         className={override}
                         sizeUnit={"px"}
                         size={60}
-                        color={'#FFC53A'}
+                        color={'whitesmoke'}
                         loading={this.state.loading}
                     />
                 </div>
