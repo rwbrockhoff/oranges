@@ -4,23 +4,38 @@ import './Home.css'
 import WOW from 'wowjs'
 import opener from '../Music/Sounds/opener.mp3'
 import popping from '../Music/Sounds/Oranges.mp3'
+import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Sound from 'react-sound'
+import {logMusic} from '../../ducks/reducer'
+import {connect} from 'react-redux';
 
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(){
     super()
     this.state = {
       sound: true,
     }
     this.openerUrl = opener
-    this.poppingUrl = opener
+    this.poppingUrl = buttonClick
     this.openerAudio = new Audio(this.openerUrl)
     this.poppingAudio = new Audio(this.poppingUrl)
+    
   }
 
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
+    this.poppingAudio.play()
+    this.props.logMusic()
+  }
+
+  componentDidMount(){
+    this.openerAudio.pause()
+    if(this.props.music === false){
+      this.openerAudio.play()
+      this.openerAudio.volume = 0.4
+    }
+
   }
 
   render(props) {
@@ -30,9 +45,9 @@ export default class Home extends Component {
 
     return (
       <div className="black-fade">
-      <audio ref='audio_tag' src={popping} autoPlay/>
+      <audio ref='audio-tag' src={popping} autoPlay />
       <div className="home">
-      <audio ref='audio_tag' src={opener} autoPlay/>
+      {/* <audio id="theme-music" ref='audio_tag' src={opener} autoPlay loop/> */}
 
         
           <img className="logoicon" src={require("../../assets/logo.png")}/>
@@ -117,7 +132,6 @@ export default class Home extends Component {
                 {this.orangeTimer = setTimeout(function(){
       document.getElementById('o5').id = 'o6'
       },4000)}
-
       </div>
       {/* {this.state.sound ? <Sound
       url={opener}
@@ -130,3 +144,10 @@ export default class Home extends Component {
     );
   }
 }
+function mapStateToProps(state){
+  return {
+    ...this.props, ...state
+  }
+}
+
+export default connect(null, {logMusic})(Home);

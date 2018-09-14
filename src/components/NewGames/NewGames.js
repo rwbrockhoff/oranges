@@ -6,6 +6,7 @@ import WOW from 'wowjs'
 import './NewGames.css'
 import {Redirect, Link} from 'react-router-dom';
 import { notDeepEqual } from 'assert';
+import buttonClick from '../Music/Sounds/buttonClick.mp3'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -21,6 +22,9 @@ class NewGames extends Component {
             userNameSubmit: false,
             cancelGame: false
         }
+
+        this.poppingUrl = buttonClick
+        this.buttonAudio = new Audio(this.poppingUrl)
 
         socket.on('user-added', data =>{
           let tempArr = this.props.users.slice(0)
@@ -80,7 +84,7 @@ class NewGames extends Component {
 
 
     createUser(){
-      // console.log(this.state.input)
+      this.buttonAudio.play()
       let names = this.props.users.map(element => {
         return element.user
       })

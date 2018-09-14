@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom'
 import {addRoom} from '../../ducks/reducer';
 import {connect} from 'react-redux';
 import axios from 'axios'
+import buttonClick from '../Music/Sounds/buttonClick.mp3'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -15,6 +16,9 @@ class CreateRoom extends Component {
             input: '',
             toGameRoom: false
         }
+        this.poppingUrl = buttonClick
+        this.buttonAudio = new Audio(this.poppingUrl)
+
         socket.on('new-player', data => {
           console.log(data.message)
           this.setState({
@@ -24,6 +28,7 @@ class CreateRoom extends Component {
     }
 
     createGame(){
+      this.buttonAudio.play()
       axios.get(`/api/checkroom/${this.state.input}`)
       .then(res => {
         console.log(res)
