@@ -5,7 +5,7 @@ import WOW from 'wowjs'
 import popping from '../Music/Sounds/Oranges.mp3'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Sound from 'react-sound'
-import {logMusic} from '../../ducks/reducer'
+import {logMusic, addPlayer, addRoom} from '../../ducks/reducer'
 import {connect} from 'react-redux';
 import Speaker from '../Speaker/Speaker'
 
@@ -27,6 +27,8 @@ class Home extends Component {
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
     this.poppingAudio.play()
+    this.props.addPlayer([])
+    this.props.addRoom(' ')
     // if(this.state.playbackFailed=== false){
     //   this.props.logMusic()
     //   console.log(this.poppingAudio.src)
@@ -56,7 +58,7 @@ class Home extends Component {
         <Link to="/Create-Room" ><center><button className='green'>New Game</button></center></Link>
         </div>
 
-        <div className="homebox wow fadeInLeft"  data-wow-delay="4.5s"  data-wow-duration="1s">
+        <div className="homebox wow fadeInLeft" data-wow-delay="4.5s"  data-wow-duration="1s">
         <Link to="/Join-Game" ><center><button className='green'>Join Game</button></center></Link>
         </div>
         <div class="image-area">
@@ -143,4 +145,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, {logMusic})(Home);
+export default connect(mapStateToProps, {logMusic, addPlayer, addRoom})(Home);

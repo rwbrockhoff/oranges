@@ -184,7 +184,7 @@ img.userImage{
     height: 38px;
     position: absolute;
     left: 5%;
-    top: 18%;
+    top: 15%;
     
 }
 .stem-new {
@@ -193,7 +193,7 @@ img.userImage{
     background-color: #654321;
     z-index: 199;
     position: absolute;
-    top: -17%;
+    top: -19%;
     left: 45%;
     border-radius: 10px;
 }
@@ -205,7 +205,7 @@ img.userImage{
     position: absolute;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
-    top: -30%;
+    top: -32%;
     left: 60%;
     transform: rotate(25deg);
     z-index: 198;
@@ -219,7 +219,7 @@ img.userImage{
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
     transform: rotate(-35deg);
-    top: -25%;
+    top: -27%;
     right: 60%;
     z-index: 200;
 }

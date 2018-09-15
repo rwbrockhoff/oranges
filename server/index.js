@@ -68,7 +68,6 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
 
         socket.on('readyPlayers-array', data => {
-            console.log('ry-players', data, data.players)
             socket.in(data.room).broadcast.emit
             ('here-are-readyPlayers', data.players)
         })
@@ -100,6 +99,12 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         socket.on('next-judge', data => {
             
             io.in(data.room).emit('heres-your-next-judge', data.users)
+        })
+
+        socket.on('leaving-room', data => {
+                io.in(data.room).emit('removed-players', data.users)
+                socket.leaveAll()
+                // socket.disconnect()
         })
     })
 

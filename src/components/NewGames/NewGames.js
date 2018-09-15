@@ -30,7 +30,6 @@ class NewGames extends Component {
         socket.on('user-added', data =>{
           let tempArr = this.props.users.slice(0)
           tempArr.push(data)
-          console.log(tempArr)
           this.props.addPlayer(tempArr)
         })
 
@@ -45,7 +44,7 @@ class NewGames extends Component {
         })
 
         socket.on('ready-player-added', data => {
-          // console.log('readyplayers', data)
+
           this.props.readyPlayer(data)
         })
 
@@ -59,6 +58,11 @@ class NewGames extends Component {
 
         socket.on('here-are-readyPlayers', data => {
           this.props.readyPlayer(data)
+        })
+
+        socket.on('removed-players', data => {
+          console.log(data, 'this is going to redux')
+          this.props.addPlayer(data)
         })
 
 
@@ -80,14 +84,9 @@ class NewGames extends Component {
       //   this.props.readyPlayer(data)
       // })
 
-      console.log(this.props.musicClass)
-      console.log(document.getElementsByTagName('audio'))
 
     }
     
-
-
-
     createUser(){
       this.buttonAudio.play()
       let names = this.props.users.map(element => {
