@@ -8,7 +8,10 @@ import Sound from 'react-sound'
 import {logMusic, addPlayer, addRoom} from '../../ducks/reducer'
 import {connect} from 'react-redux';
 import Speaker from '../Speaker/Speaker'
+import io from 'socket.io-client'
 
+
+const socket = io.connect('http://localhost:3020')
 
 
 class Home extends Component {
@@ -24,16 +27,19 @@ class Home extends Component {
     
   }
 
+  componentDidMount(){
+    socket.emit('leaveAll')
+    if(this.props.users[0]){
+      //Dont like this but used to clear the sockets properly//
+      window.location.reload()
+    }
+  }
+
   componentWillUnmount(){
     window.clearTimeout(this.orangeTimer)
     this.poppingAudio.play()
     this.props.addPlayer([])
     this.props.addRoom(' ')
-    // if(this.state.playbackFailed=== false){
-    //   this.props.logMusic()
-    //   console.log(this.poppingAudio.src)
-    //   console.log(this.poppingAudio)
-    // }
   }
 
   shouldComponentUpdate(){

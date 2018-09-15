@@ -103,8 +103,15 @@ massive(process.env.CONNECTION_STRING).then(db=>{
 
         socket.on('leaving-room', data => {
                 io.in(data.room).emit('removed-players', data.users)
-                socket.leaveAll()
-                // socket.disconnect()
+                socket.leave(data.room, function(err){
+                    console.log(err,'what is this')
+                })
+        })
+
+        socket.on("leaveAll", ()=>{
+            console.log('leaving')
+            socket.leaveAll()
+            socket.disconnect()
         })
     })
 

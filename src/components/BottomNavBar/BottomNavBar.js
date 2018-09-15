@@ -51,7 +51,6 @@ class BottomNavBar extends Component {
   
 
   render() {
-    console.log('sea otters', this.state.index)
       
     
     return (

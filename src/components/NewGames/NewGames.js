@@ -76,14 +76,7 @@ class NewGames extends Component {
       })
       socket.emit('join-room', {room:this.props.room})
 
-      // socket.on('add-players', data => {
-      //   this.props.addPlayer(data.data.players)
-      // })
       socket.emit('receive-ready-players', {room: this.props.room})
-      // socket.on('here-are-readyPlayers', data => {
-      //   this.props.readyPlayer(data)
-      // })
-
 
     }
     
