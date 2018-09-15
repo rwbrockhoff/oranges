@@ -5,6 +5,7 @@ import {setJudge, updateJudge} from '../../ducks/reducer'
 import _ from 'lodash';
 import {Redirect} from 'react-router-dom'
 import io from 'socket.io-client'
+import axios from 'axios'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -31,6 +32,12 @@ class Endgame extends Component {
       })
       
     })
+
+    socket.on('lets-go-home', ()=>{
+      this.setState({
+        toHome: true
+      })
+    })
   }
   componentDidMount(){
     socket.emit('join-room-generic', {room:this.props.room})
@@ -55,9 +62,23 @@ class Endgame extends Component {
     socket.emit('going-to-next-round', {room:this.props.room})
   }
   toHome(){
-    this.setState({
-      toHome: true
+    axios.delete('/api/deleteroom', {roomName: this.props.room})
+    .then(res => {
+      socket.emit('to-home', {room: this.props.room})
     })
+  }
+
+  newGame(){
+    let usersArr = this.props.users.slice(0)
+    usersArr[0].judge = false
+    let shiftedGuy = usersArr.shift()
+    usersArr.push(shiftedGuy)
+    usersArr[0].judge = true
+    usersArr.forEach(user =>{
+      user.score = 0
+    })
+    socket.emit('next-judge', {users: usersArr, room: this.props.room})
+    socket.emit('going-to-next-round', {room:this.props.room})
   }
 
   render() {
@@ -88,7 +109,7 @@ class Endgame extends Component {
         {displayUsers}
        {this.state.winner ? 
         <div>
-        <button className="green">New Game</button>
+        <button onClick={()=>this.newGame()} className="green">New Game</button>
         <button onClick={()=>this.toHome()}className="green">Exit</button>
         </div>
        : <button onClick={()=>this.nextRound()} className="green">Next Round</button>}

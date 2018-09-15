@@ -15,6 +15,10 @@ div.game {
   color: #000;
   font-family: 'Open Sans';
 }
+.judge-div{
+  display: flex;
+  flex-direction: space-between;
+}
 
 div.Qcard {
   height: 50vh;

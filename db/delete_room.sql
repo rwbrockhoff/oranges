@@ -1,0 +1,1 @@
+delete from game where roomname = ${roomName}

@@ -124,7 +124,6 @@ class NewGames extends Component {
       if (!this.state.userNameSubmit){
         return (
         <div className="userinput">
-        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.pictureInput}.png`} /> */}
         <input onChange={(e) => this.setState({input: e.target.value, pictureInput: e.target.value})}/>
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
@@ -134,7 +133,7 @@ class NewGames extends Component {
       else if (this.state.userNameSubmit && this.props.users.length > 1) {
         return (
           <div className="readymessage wow fadeInUp">
-        <h2 className="readyMessage">Join when ready.</h2>
+        <h2 className="readyMessage">Ready up when everyone is here!</h2>
         </div>
         )
       }

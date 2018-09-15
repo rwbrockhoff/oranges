@@ -113,6 +113,10 @@ massive(process.env.CONNECTION_STRING).then(db=>{
             socket.leaveAll()
             socket.disconnect()
         })
+
+        socket.on('to-home', data => {
+            io.in(data.room).emit('lets-go-home')
+        })
     })
 
 })
@@ -132,7 +136,6 @@ app.get('/api/getqcard', controller.getQCard)
 //Receives username and returns an array with 1 object {id, username} - id is the session ID
 app.post('/api/newplayer', controller.newPlayer)
 
-//Needs a real comment
 app.delete('/api/deleteplayer/:id', controller.deletePlayer)
 
 app.post('/api/addroom', controller.addRoom)
@@ -140,4 +143,6 @@ app.post('/api/addroom', controller.addRoom)
 app.get('/api/checkroom/:name', controller.checkRoom)
 
 app.put('/api/lockroom', controller.lockRoom)
+
+app.delete('/api/deleteroom', controller.deleteRoom)
 

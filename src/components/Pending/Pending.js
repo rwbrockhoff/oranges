@@ -22,7 +22,8 @@ class Pending extends Component {
         super(props);
         this.state = {
             loading: true,
-            toWaiting: false
+            toWaiting: false,
+            judgeDeciding: false
         }
 
 
@@ -35,6 +36,17 @@ class Pending extends Component {
     }
     componentDidMount(){
         socket.emit('join-room-generic', {room:this.props.room})
+            if(this.props.sCards.length === this.props.users.length - 1){
+                this.setState({judgeDeciding : true})
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.sCards !== prevProps.sCards){
+            if(this.props.sCards.length === this.props.users.length - 1){
+                this.setState({judgeDeciding : true})
+            }
+        }
     }
 
     
@@ -62,7 +74,11 @@ class Pending extends Component {
         <img id="cloud4" src={require("../../assets/clouds.png")}/>
                
                 <div className='Pending-Text'>
-                <h2><strong>Waiting for other Players...</strong></h2>
+                {this.state.judgeDeciding === false ? 
+                <h2><strong>Waiting for other Players...</strong></h2> :
+                <h2><strong>Waiting on the judge...</strong></h2>
+
+                }
                 </div>
                 {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
             </div>
