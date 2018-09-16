@@ -149,9 +149,7 @@ class NewGames extends Component {
     var userButtonReady = () => {
       if (this.state.userNameSubmit && this.props.users.length > 1){
         return (
-          <div>
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
-        </div>
         )
       }
       
@@ -190,9 +188,9 @@ class NewGames extends Component {
         {/* Running conditional render for userInput */}
         {userInputReady()}
       
-        <div className="footer">
+        {/* <div className="footer"> */}
         {userButtonReady()}
-        </div>
+        {/* </div> */}
         {this.state.toLoading ? <Redirect to='/loading' /> : ''}
         {this.state.cancelGame ? <Redirect to='/' /> : ''}
       </div>

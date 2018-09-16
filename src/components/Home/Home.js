@@ -28,6 +28,8 @@ class Home extends Component {
   }
 
   componentDidMount(){
+    const wow = new WOW.WOW();
+    wow.init();
     socket.emit('leaveAll')
     if(this.props.users[0]){
       //Dont like this but used to clear the sockets properly//
@@ -48,8 +50,7 @@ class Home extends Component {
 
   render(props) {
     //Initiate WOW on Render
-  const wow = new WOW.WOW();
-  wow.init();
+ 
 
     return (
       <div className="black-fade">
@@ -57,7 +58,7 @@ class Home extends Component {
       <div className="home">
       <Speaker/>
         
-          <img className="logoicon" src={require("../../assets/logo.png")}/>
+          <img className="logoicon wow fadeIn" data-wow-delay="4.5s" data-wow-duration="1s" src={require("../../assets/logo.png")}/>
         
 
         <div className="homebox wow fadeInRight"  data-wow-delay="4.5s"  data-wow-duration="1s">

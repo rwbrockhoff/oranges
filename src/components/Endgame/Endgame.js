@@ -114,7 +114,7 @@ class Endgame extends Component {
         </div>
        : <button onClick={()=>this.nextRound()} className="green">Next Round</button>}
        {this.state.nextRound ? <Redirect to="/Game"/> : ''}
-       {this.state.toHome ? <Redirect to="/"/> : ''}
+       {this.state.toHome ? <Redirect to="/home"/> : ''}
       </div>
     )
   }

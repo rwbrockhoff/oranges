@@ -72,7 +72,7 @@ class BottomNavBar extends Component {
         }
         
      
-        <Link onClick={()=>this.leaveRoom()} to="/">
+        <Link onClick={()=>this.leaveRoom()} to="/home">
         <div className="home-button">
         <i className="fas fa-home"/>
         <p>Home</p>

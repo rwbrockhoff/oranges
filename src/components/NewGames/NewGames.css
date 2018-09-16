@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 div.newgames {
-  height: 100vh;
+  height: 93vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background: linear-gradient(#87ceeb, #00a6e8);
   color: #ffffff;
+  overflow: hidden;
 }
 
 div.box {
@@ -55,6 +56,7 @@ div.userinput {
 
 h2.readyMessage {
     font-family: 'Open Sans';
+    text-align: center;
 }
 
 input {
@@ -106,7 +108,10 @@ button.ready {
     font-family: 'Open Sans';
     font-weight: 600;
     outline: none;
-    margin-bottom: 175px;
+    position: absolute;
+    bottom: 12vh;
+    width: 40%;
+    max-width: 200px;
 }
 
 button.ready.g {
