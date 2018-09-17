@@ -161,7 +161,7 @@ class NewGames extends Component {
       <Speaker />
       {/* <audio muted src={this.props.musicClass}></audio> */}
         <div className="roomid">
-        <Textfit mode="single" max="40">
+        <Textfit mode="single" max="36">
         <h1>Room ID: {this.state.roomId}</h1>
         </Textfit>
         </div>
