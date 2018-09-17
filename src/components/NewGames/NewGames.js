@@ -8,6 +8,7 @@ import {Redirect, Link} from 'react-router-dom';
 import { notDeepEqual } from 'assert';
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
+import { Textfit } from 'react-textfit'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -61,7 +62,6 @@ class NewGames extends Component {
         })
 
         socket.on('removed-players', data => {
-          console.log(data, 'this is going to redux')
           this.props.addPlayer(data)
         })
 
@@ -130,7 +130,7 @@ class NewGames extends Component {
         )}
 
       // If they submitted userName, render a ready message.
-      else if (this.state.userNameSubmit && this.props.users.length > 1) {
+      else if (this.state.userNameSubmit && this.props.users.length > 2) {
         return (
           <div className="readymessage wow fadeInUp">
         <h2 className="readyMessage">Ready up when everyone is here!</h2>
@@ -161,7 +161,9 @@ class NewGames extends Component {
       <Speaker />
       {/* <audio muted src={this.props.musicClass}></audio> */}
         <div className="roomid">
+        <Textfit>
         <h1>Room ID: {this.state.roomId}</h1>
+        </Textfit>
         </div>
         {/* When we pull in users, we'll want to map over that array here instead of a static set of divs. Just for visual example. Please use classnames to maintain styling.  */}
         <div className="userbox">
