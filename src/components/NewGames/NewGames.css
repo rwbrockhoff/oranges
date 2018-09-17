@@ -229,4 +229,11 @@ img.userImage{
     z-index: 200;
 }
 
+@media(min-width: 560px) {
+    div.userinput{
+        max-width: 450px;
+        border-radius: 10px;
+    }
+}
+
 

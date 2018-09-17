@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
 .welcome-button {
     width: 50%;
     max-width: 200px;
@@ -28,15 +30,18 @@
     margin-top: 150px;
     z-index: 200;
     color: #333333;
+    position: relative;
 }
 .welcome-p {
     text-align: center;
     margin: 10px;
     font-size: 22px;
+    font-family: 'Open Sans';
 }
 .welcome-h2 {
     margin-top: 10px;
     font-size: 30px;
+    font-family: 'Open Sans';
 }
 #fade1 {
     animation-name: fade;
