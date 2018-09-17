@@ -7,6 +7,7 @@ import {Redirect} from 'react-router-dom';
 import axios from 'axios'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
+import swal from 'sweetalert2'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -32,9 +33,16 @@ class JoinGame extends Component {
             toGameRoom: true
           })
         } else if (res.data[0] && res.data[0].open === false){
-          alert('game already in progress')
+          swal({
+            type: 'error',
+            text: "Game already in progress!",
+          })
         } else {
-          alert('game not found')
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: "We can't find that room!",
+          })
         }
       })
 

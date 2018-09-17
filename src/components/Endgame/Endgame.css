@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 div.endgame {
     background: linear-gradient(#87ceeb, #00a6e8);
@@ -9,6 +9,26 @@ div.endgame {
     align-items: center;
     flex-direction: column;
    
+}
+#answerCard-endgame{
+    color: #333;
+    background-color: #5BC85B;
+    border-radius: 20px;
+    width: 137px;
+    height: 160px;
+    text-align: left;
+    padding: 0px 10px;
+    padding-top: 10px;
+    box-shadow: 10px 10px 93px -33px #000000bf;
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.endgame-users{
+    height: 40vh;
+    overflow-y: scroll;
+    border-radius: 20px;
 }
 
 div.EndRound {
@@ -25,7 +45,8 @@ div.winner h1 {
     margin-bottom: -20px;
 }
 .endgame h1 {
-    font-family: 'Bangers', cursive;
+    font-family: 'Open Sans';
+    font-weight: 700;
     color: white;
 }
 

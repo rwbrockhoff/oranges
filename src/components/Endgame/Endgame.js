@@ -113,9 +113,16 @@ class Endgame extends Component {
       <h1>{this.props.winningCard.user} wins the game!</h1> : 
       <div>
       <h1>{this.props.winningCard.user} wins the round</h1>
-      <h1>{this.props.winningCard.name}</h1>
+      {/* <h1>{this.props.winningCard.name}</h1> */}
+      <div id="answerCard-endgame">
+      <h2>{this.props.winningCard.name}</h2>
+          <br />
+          <h4>{this.props.winningCard.description}</h4>
+      </div>
       </div>}
+      <div className="endgame-users">
         {displayUsers}
+      </div>
        {this.state.winner ? 
         <div>
         <button onClick={()=>this.newGame()} className="green">New Game</button>
