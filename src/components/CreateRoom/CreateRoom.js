@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 import axios from 'axios'
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
+import swal from 'sweetalert2'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -21,21 +22,16 @@ class CreateRoom extends Component {
         this.buttonAudio = new Audio(this.poppingUrl)
 
         socket.on('new-player', data => {
-          console.log(data.message)
           this.setState({
             toGameRoom: true
           })
         })
-    }
-    componentDidMount(props){
-      console.log(this.props)
     }
 
     createGame(){
       this.buttonAudio.play()
       axios.get(`/api/checkroom/${this.state.input}`)
       .then(res => {
-        console.log(res)
         if(!res.data[0]){
           axios.post('/api/addroom', {room: this.state.input})
           .then(res =>{
@@ -46,7 +42,11 @@ class CreateRoom extends Component {
             })
           })
         } else {
-          alert('room already taken')
+          swal({
+            type: 'error',
+            title: 'Oops...',
+            text: "Looks like that room is already taken!",
+          })
         }
       })
 
