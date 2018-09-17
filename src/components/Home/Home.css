@@ -146,17 +146,11 @@ button.green:hover {
   height: 50%;
   background-color: green;
   border-radius: 50%;
+  border-bottom-left-radius: 0;
   position: relative;
   top: 391px;
   right: 140px;
   overflow: hidden;
-}
-#middle-hill {
-  width: 100%;
-  height: 10vh;
-  background-color: green;
-  position: absolute;
-  bottom: 0px;
 }
 #tree-wrapper {width: 1350px; height: 240px; position: relative;}
 #tree-wrapper .tree {position: absolute; height: 240px; width:250px;}
