@@ -1,8 +1,9 @@
 .qcard{
-    background-color: black;
-    color: white;
+    background-color: orange;
+    color: black;
     text-align: center;
     border-radius: 15px;
+    margin: 0px auto;
     width: 80%;
     height: 20vh;
     padding: 15px 25px;
@@ -11,6 +12,12 @@
     align-items: center;
     flex-direction: column;
     margin-bottom: 50px;
+}
+.Qcard {
+    background-color: skyblue;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 h1 {

@@ -24,7 +24,6 @@ class Qcard extends Component {
         let obj = this.arrayGet()
        
         if (obj[0].user === this.props.user.user){
-            alert('The doggo!')
             this.setter()
         }
     

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import './Endgame.css'
 import {connect} from 'react-redux';
-import {setJudge, updateJudge} from '../../ducks/reducer'
+import {setJudge, updateJudge, updateQCard} from '../../ducks/reducer'
 import _ from 'lodash';
 import {Redirect} from 'react-router-dom'
 import io from 'socket.io-client'
 import axios from 'axios'
+import WOW from 'wowjs'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -19,6 +20,7 @@ class Endgame extends Component {
     }
 
     socket.on('lets-go-to-next-round', ()=>{
+      this.props.updateQCard([])
       this.setState({
         nextRound: true
       })
@@ -40,6 +42,8 @@ class Endgame extends Component {
     })
   }
   componentDidMount(){
+    const wow = new WOW.WOW();
+    wow.init();
     socket.emit('join-room-generic', {room:this.props.room})
     let winner = this.props.users.filter(user => {
       return user.score === 2
@@ -88,7 +92,7 @@ class Endgame extends Component {
     var displayUsers = scoreArray.map((e,i) => {
       return(
         
-        <div className='userbubble' key={i}>
+        <div className='userbubble wow fadeIn' data-wow-delay="2.5s" data-wow-duration=".5s" key={i}>
         <div className="main-image-div">
           <div className="stem-new"></div>
           <div className="leaf1-new"></div>
@@ -105,7 +109,12 @@ class Endgame extends Component {
     })
     return (
       <div className="endgame">
-      {this.state.winner ? <h1>Winner!!!</h1> : ''}
+      {this.state.winner ? 
+      <h1>{this.props.winningCard.user} wins the game!</h1> : 
+      <div>
+      <h1>{this.props.winningCard.user} wins the round</h1>
+      <h1>{this.props.winningCard.name}</h1>
+      </div>}
         {displayUsers}
        {this.state.winner ? 
         <div>
@@ -127,4 +136,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {setJudge, updateJudge})(Endgame)
+export default connect(mapStateToProps, {setJudge, updateJudge, updateQCard})(Endgame)

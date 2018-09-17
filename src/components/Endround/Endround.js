@@ -1,27 +1,44 @@
 import React, { Component } from 'react'
 import './Endround.css'
 import Qcard from '../Qcard/Qcard'
+import {connect} from 'react-redux'
+import {Redirect} from 'react-router-dom'
 
-export default class Endround extends Component {
+class Endround extends Component {
+  constructor(){
+    super()
+    this.state = {
+      toNext: false
+    }
+  }
+
+  componentDidMount(){
+    window.setTimeout(()=>{
+      this.setState({
+        toNext:true
+      })
+    },3000)
+  }
   render() {
     return (
       <div className="endround">
-        <div className="Card">
-        <Qcard/>
-        </div>
-
-        <div className="Card">
-        <Qcard/>
-        </div>
 
         <div className="leaderboard">
-        <h1>User</h1>
+        <h1>{this.props.winningCard.user}</h1>
         <h1>wins the round!</h1>
-        <button className="green">Next Card</button>
+        <h2>{this.props.winningCard.name}</h2>
+        <h2>{this.props.winningCard.description}</h2>
         </div>
-        
+        {this.state.toNext ? <Redirect to="/End-Game" /> : ''}
       </div>
      
     )
   }
 }
+function mapStateToProps(state){
+  return {
+      ...this.props, ...state
+  }
+}
+
+export default connect(mapStateToProps)(Endround)

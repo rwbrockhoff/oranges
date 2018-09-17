@@ -68,7 +68,7 @@ class Home extends Component {
         <div className="homebox wow fadeInLeft" data-wow-delay="4.5s"  data-wow-duration="1s">
         <Link to="/Join-Game" ><center><button className='green'>Join Game</button></center></Link>
         </div>
-        <div class="image-area">
+        <div className="image-area">
         <img id="cloud1" src={require("../../assets/clouds.png")}/>
         <img id="cloud2" src={require("../../assets/clouds.png")}/>
         <img id="cloud3" src={require("../../assets/clouds.png")}/>
@@ -76,63 +76,63 @@ class Home extends Component {
         <div id="front-hill"></div>
         <div id="middle-hill"></div>
         <div id="back-hill"></div>
-        <div class="orange" id="o1"><div class="orange-color"></div><div class="orange-orange-color"></div></div>
-        <div class="orange" id="o2"><div class="orange-color"></div><div class="orange-orange-color"></div></div>
-        <div class="orange" id="o3"><div class="orange-color"></div><div class="orange-orange-color"></div></div>
-        <div class="orange" id="o4"><div class="orange-color"></div><div class="orange-orange-color"></div></div>
-        <div class="orange" id="o5"><div class="orange-color"></div><div class="orange-orange-color"></div></div>
+        <div className="orange" id="o1"><div  className="orange-color"></div><div className="orange-orange-color"></div></div>
+        <div className="orange" id="o2"><div className="orange-color"></div><div  className="orange-orange-color"></div></div>
+        <div className="orange" id="o3"><div className="orange-color"></div><div className="orange-orange-color"></div></div>
+        <div className="orange" id="o4"><div className="orange-color"></div><div className="orange-orange-color"></div></div>
+        <div className="orange" id="o5"><div className="orange-color"></div><div className="orange-orange-color"></div></div>
         <div id="tree-wrapper">
-                <div class="tree tree1">
-                  <div class="branch1 branch"></div>
-                  <div class="branch2 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                <div className="tree tree1">
+                  <div className="branch1 branch"></div>
+                  <div className="branch2 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch3 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch3 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch4 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch4 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch5 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch5 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch6 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch6 branch">
+                    <div  className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch7 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch7 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch8 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch8 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch9 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch9 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch10 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch10 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
-                  <div class="branch11 branch">
-                    <div class="leaf"></div>
-                    <div class="leaf1"></div>
-                    <div class="leaf2"></div>
+                  <div className="branch11 branch">
+                    <div className="leaf"></div>
+                    <div className="leaf1"></div>
+                    <div className="leaf2"></div>
                   </div>
                 </div>
                   </div>

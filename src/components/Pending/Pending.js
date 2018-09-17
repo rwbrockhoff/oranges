@@ -5,7 +5,7 @@ import { css } from 'react-emotion';
 import { PacmanLoader } from 'react-spinners';
 import io from 'socket.io-client'
 import {Redirect} from 'react-router-dom'
-import {addPlayer} from '../../ducks/reducer'
+import {addPlayer, addWinningCard} from '../../ducks/reducer'
 
 const override2 = css`
     display: block;
@@ -28,7 +28,8 @@ class Pending extends Component {
 
 
         socket.on('updated-users-pending', data => {
-            this.props.addPlayer(data)
+            this.props.addPlayer(data.users)
+            this.props.addWinningCard(data.winner[0])
             this.setState({
                 toWaiting: true
             })
@@ -91,4 +92,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {addPlayer})(Pending)
+export default connect(mapStateToProps, {addPlayer, addWinningCard})(Pending)

@@ -45,7 +45,7 @@ class Game extends Component {
         {this.state.judge === true ? 
         <div className="judge-div">
         <h1>You're the judge this round!</h1>
-        <FontAwesomeIcon icon={faGavel} size='2x'/>
+        <FontAwesomeIcon icon={faGavel} color="#964B00" size='2x'/>
         </div>
         : ''
         }

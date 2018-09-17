@@ -88,8 +88,11 @@ massive(process.env.CONNECTION_STRING).then(db=>{
         })
         
         socket.on('user-with-points', data => {
-            io.in(data.room).emit('updated-users', data.users)
-            io.in(data.room).emit('updated-users-pending', data.users)
+            console.log(data.winner, 'server side winning card')
+
+            //was data.users before adding winning card on client side
+            io.in(data.room).emit('updated-users', data)
+            io.in(data.room).emit('updated-users-pending', data)
         })
 
         socket.on('going-to-next-round', data =>{
