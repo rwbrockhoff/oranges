@@ -30,7 +30,6 @@ class NewGames extends Component {
         socket.on('user-added', data =>{
           let tempArr = this.props.users.slice(0)
           tempArr.push(data)
-          console.log(tempArr)
           this.props.addPlayer(tempArr)
         })
 
@@ -45,7 +44,7 @@ class NewGames extends Component {
         })
 
         socket.on('ready-player-added', data => {
-          // console.log('readyplayers', data)
+
           this.props.readyPlayer(data)
         })
 
@@ -61,6 +60,11 @@ class NewGames extends Component {
           this.props.readyPlayer(data)
         })
 
+        socket.on('removed-players', data => {
+          console.log(data, 'this is going to redux')
+          this.props.addPlayer(data)
+        })
+
 
 
     }
@@ -72,22 +76,10 @@ class NewGames extends Component {
       })
       socket.emit('join-room', {room:this.props.room})
 
-      // socket.on('add-players', data => {
-      //   this.props.addPlayer(data.data.players)
-      // })
       socket.emit('receive-ready-players', {room: this.props.room})
-      // socket.on('here-are-readyPlayers', data => {
-      //   this.props.readyPlayer(data)
-      // })
-
-      console.log(this.props.musicClass)
-      console.log(document.getElementsByTagName('audio'))
 
     }
     
-
-
-
     createUser(){
       this.buttonAudio.play()
       let names = this.props.users.map(element => {
@@ -132,7 +124,6 @@ class NewGames extends Component {
       if (!this.state.userNameSubmit){
         return (
         <div className="userinput">
-        {/* <img src={`https://api.adorable.io/avatars/69/${this.state.pictureInput}.png`} /> */}
         <input onChange={(e) => this.setState({input: e.target.value, pictureInput: e.target.value})}/>
         <button onClick={()=>this.createUser()}className="green">Join Game</button>
         </div>
@@ -142,7 +133,7 @@ class NewGames extends Component {
       else if (this.state.userNameSubmit && this.props.users.length > 1) {
         return (
           <div className="readymessage wow fadeInUp">
-        <h2 className="readyMessage">Join when ready.</h2>
+        <h2 className="readyMessage">Ready up when everyone is here!</h2>
         </div>
         )
       }
@@ -158,9 +149,7 @@ class NewGames extends Component {
     var userButtonReady = () => {
       if (this.state.userNameSubmit && this.props.users.length > 1){
         return (
-          <div>
         <button className="ready g" onClick={() => this.readyClick()} >Ready?</button>
-        </div>
         )
       }
       
@@ -199,9 +188,9 @@ class NewGames extends Component {
         {/* Running conditional render for userInput */}
         {userInputReady()}
       
-        <div className="footer">
+        {/* <div className="footer"> */}
         {userButtonReady()}
-        </div>
+        {/* </div> */}
         {this.state.toLoading ? <Redirect to='/loading' /> : ''}
         {this.state.cancelGame ? <Redirect to='/' /> : ''}
       </div>

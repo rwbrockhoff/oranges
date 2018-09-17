@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Gudea');
+
 div.endgame {
     background: linear-gradient(#87ceeb, #00a6e8);
     width: 100%;
-    height: 100vh;
+    height: 93vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
    
@@ -21,6 +23,10 @@ div.winner {
 div.winner h1 {
     font-size: 3.5em;
     margin-bottom: -20px;
+}
+.endgame h1 {
+    font-family: 'Bangers', cursive;
+    color: white;
 }
 
 div.winner h2 {

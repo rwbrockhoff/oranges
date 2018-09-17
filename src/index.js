@@ -19,13 +19,20 @@ import CreateRoom from './components/CreateRoom/CreateRoom';
 import BottomNav from './components/BottomNavBar/BottomNavBar';
 import WinnerIs from './components/WinnerIs/WinnerIs'
 import MusicTheme from './components/MusicTheme/MusicTheme'
+import Welcome from './components/Welcome/Welcome'
 
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Switch>
-                <Route exact path='/' render={() => (
+            <Route exact path='/' render={() => (
+                    <div>
+                        <Welcome />
+                    </div>
+                )} />
+
+                <Route path='/home' render={() => (
                     <div>
                         <Home/>
                         <MusicTheme/>

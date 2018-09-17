@@ -3,8 +3,33 @@ import './Game.css'
 import WOW from 'wowjs'
 import Acard from '../Acard/Acard'
 import Qcard from '../Qcard/Qcard'
+import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faGavel } from '@fortawesome/free-solid-svg-icons'
 
-export default class Game extends Component {
+library.add(faGavel)
+
+class Game extends Component {
+  constructor(){
+    super()
+    this.state = {
+      judge: false
+    }
+  }
+
+  componentDidMount(){
+    let judge = this.props.users.filter(player => {
+      return player.judge === true
+    })
+    console.log(judge, 'judge')
+    if(judge[0].user === this.props.user.user){
+      this.setState({
+        judge: true
+      })
+    }
+  }
+
   render() {
 
   //Initiate WOW on Render
@@ -17,7 +42,13 @@ export default class Game extends Component {
         <div className="Qcard wow fadeInDown" data-wow-duration="0.4s">
           <Qcard/>
         </div>
-        
+        {this.state.judge === true ? 
+        <div className="judge-div">
+        <h1>You're the judge this round!</h1>
+        <FontAwesomeIcon icon={faGavel} color="#964B00" size='2x'/>
+        </div>
+        : ''
+        }
         <div className="Acard">
             <Acard/>
         </div>
@@ -27,3 +58,11 @@ export default class Game extends Component {
         );
     }
 }
+function mapStateToProps(state){
+  return{
+    ...this.props, ...state
+  }
+}
+
+
+export default connect(mapStateToProps)(Game)

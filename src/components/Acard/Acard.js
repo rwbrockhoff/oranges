@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Acard.css';
 import axios from 'axios';
-import {storeACard, updateSCard, updateACards, addPlayer} from '../../ducks/reducer'
+import {storeACard, updateSCard, updateACards, addPlayer, addWinningCard} from '../../ducks/reducer'
 import {connect} from 'react-redux'
 import Coverflow from 'react-coverflow';
 import { StyleRoot } from 'radium';
@@ -24,7 +24,8 @@ class Acard extends Component {
         })
 
         socket.on('updated-users', data => {
-            this.props.addPlayer(data)
+            this.props.addPlayer(data.users)
+            this.props.addWinningCard(data.winner[0])
             this.setState({
                 toWaiting: true
             })
@@ -117,7 +118,8 @@ class Acard extends Component {
                     return e;
                 })
                 this.props.addPlayer(usersCopy)
-                socket.emit('user-with-points', {room: this.props.room, users: this.props.users})
+                console.log(winningCard, 'judges winning card')
+                socket.emit('user-with-points', {room: this.props.room, users: this.props.users, winner: winningCard})
             }})
     }
 
@@ -202,4 +204,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps, {storeACard, updateSCard, updateACards, addPlayer})(Acard)
+export default connect(mapStateToProps, {storeACard, updateSCard, updateACards, addPlayer, addWinningCard})(Acard)

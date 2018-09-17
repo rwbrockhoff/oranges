@@ -61,5 +61,12 @@ module.exports = {
         .then(response=>{
             res.status(200).send('locked')
         })
+    },
+    deleteRoom: (req,res) => {
+        const db = req.app.get('db')
+        db.delete_room({roomName: req.body.roomName})
+        .then(response => {
+            res.status(200).send('deleted')
+        })
     }
 }

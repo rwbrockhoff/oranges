@@ -5,7 +5,7 @@ import { css } from 'react-emotion';
 import { PacmanLoader } from 'react-spinners';
 import io from 'socket.io-client'
 import {Redirect} from 'react-router-dom'
-import {addPlayer} from '../../ducks/reducer'
+import {addPlayer, addWinningCard} from '../../ducks/reducer'
 
 const override2 = css`
     display: block;
@@ -22,12 +22,14 @@ class Pending extends Component {
         super(props);
         this.state = {
             loading: true,
-            toWaiting: false
+            toWaiting: false,
+            judgeDeciding: false
         }
 
 
         socket.on('updated-users-pending', data => {
-            this.props.addPlayer(data)
+            this.props.addPlayer(data.users)
+            this.props.addWinningCard(data.winner[0])
             this.setState({
                 toWaiting: true
             })
@@ -35,6 +37,17 @@ class Pending extends Component {
     }
     componentDidMount(){
         socket.emit('join-room-generic', {room:this.props.room})
+            if(this.props.sCards.length === this.props.users.length - 1){
+                this.setState({judgeDeciding : true})
+        }
+    }
+
+    componentDidUpdate(prevProps){
+        if(this.props.sCards !== prevProps.sCards){
+            if(this.props.sCards.length === this.props.users.length - 1){
+                this.setState({judgeDeciding : true})
+            }
+        }
     }
 
     
@@ -62,7 +75,11 @@ class Pending extends Component {
         <img id="cloud4" src={require("../../assets/clouds.png")}/>
                
                 <div className='Pending-Text'>
-                <h2><strong>Waiting for other Players...</strong></h2>
+                {this.state.judgeDeciding === false ? 
+                <h2><strong>Waiting for other Players...</strong></h2> :
+                <h2><strong>Waiting on the judge...</strong></h2>
+
+                }
                 </div>
                 {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
             </div>
@@ -75,4 +92,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {addPlayer})(Pending)
+export default connect(mapStateToProps, {addPlayer, addWinningCard})(Pending)

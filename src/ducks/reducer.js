@@ -8,7 +8,8 @@ const initialState = {
   qCard: [],
   readyPlayers: [],
   user: {user: "default", userPic: "https://api.adorable.io/avatars/50/a.png", judge: false, score: 0},
-  music: true
+  music: true,
+  winningCard: []
 }
 
 const STOREQCARD = 'STOREQCARD';
@@ -23,6 +24,7 @@ const UPDATEQCARD = 'UPDATEQCARD';
 const UPDATESCARD = 'UPDATESCARD';
 const UPDATEACARDS = 'UPDATEACARDS';
 const LOGMUSIC = 'LOGMUSIC';
+const ADDWINNER = 'ADDWINNER';
 
 export const storeQCard = (card) => ({
 type: STOREQCARD,
@@ -85,6 +87,11 @@ export const logMusic = (music) => ({
   payload: music
 })
 
+export const addWinningCard = (winner) => ({
+  type: ADDWINNER,
+  payload: winner
+})
+
 
 
 
@@ -127,6 +134,9 @@ switch (action.type) {
 
     case LOGMUSIC:
     return Object.assign({}, state, {music: !state.music})
+
+    case ADDWINNER:
+    return Object.assign({}, state, {winningCard: action.payload})
 
 default:
   return state
