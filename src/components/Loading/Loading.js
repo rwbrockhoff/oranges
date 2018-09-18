@@ -7,7 +7,7 @@ import { css } from 'react-emotion';
 import { GridLoader } from 'react-spinners';
 import {connect} from 'react-redux';
 import io from 'socket.io-client';
-import {addPlayer, setJudge} from '../../ducks/reducer'
+import {addPlayer, setJudge, updateQCard, readyPlayer} from '../../ducks/reducer'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 
@@ -193,4 +193,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps,{addPlayer, setJudge})(Loading);
+export default connect(mapStateToProps,{addPlayer, setJudge, updateQCard,readyPlayer})(Loading);
