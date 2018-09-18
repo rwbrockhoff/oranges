@@ -40,6 +40,10 @@ class Endgame extends Component {
         toHome: true
       })
     })
+
+    socket.on('getQCard', data => {
+      this.props.updateQCard(data.qCard)
+  })
   }
   componentDidMount(){
     const wow = new WOW.WOW();

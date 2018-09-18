@@ -11,6 +11,7 @@ const socket = io.connect('http://localhost:3020')
 class Qcard extends Component {
     constructor(){
         super()
+        
         socket.on('getQCard', data => {
             this.props.updateQCard(data.qCard)
         })
