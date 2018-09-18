@@ -15,7 +15,7 @@ const override2 = css`
     padding-top: 0px;
 `;
 
-const socket = io.connect('http://138.68.13.146:3020')
+const socket = io.connect('https://server.aktlist.com')
 
 class Pending extends Component {
     constructor(props) {

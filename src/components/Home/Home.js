@@ -11,7 +11,7 @@ import Speaker from '../Speaker/Speaker'
 import io from 'socket.io-client'
 
 
-const socket = io.connect('http://138.68.13.146:3020')
+const socket = io.connect('https://server.aktlist.com')
 
 
 class Home extends Component {

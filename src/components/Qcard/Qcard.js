@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import io from 'socket.io-client';
 import './Qcard.css';
 
-const socket = io.connect('http://138.68.13.146:3020')
+const socket = io.connect('https://server.aktlist.com')
 
 
 class Qcard extends Component {
@@ -54,7 +54,7 @@ arrayGet(){
 }
 
 setter = () => {
-    axios.get('http://138.68.13.146:3020/api/getqcard').then(results => {
+    axios.get('https://server.aktlist.com/api/getqcard').then(results => {
         this.props.storeQCard(results.data)
     }).then(() => {
         socket.emit('updateQCard', {room: this.props.room, qCard: this.props.qCard})

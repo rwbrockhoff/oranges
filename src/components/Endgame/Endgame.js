@@ -8,7 +8,7 @@ import io from 'socket.io-client'
 import axios from 'axios'
 import WOW from 'wowjs'
 
-const socket = io.connect('http://138.68.13.146:3020')
+const socket = io.connect('https://server.aktlist.com')
 
 class Endgame extends Component {
   constructor(){
@@ -70,7 +70,7 @@ class Endgame extends Component {
     socket.emit('going-to-next-round', {room:this.props.room})
   }
   toHome(){
-    axios.delete('http://138.68.13.146:3020/api/deleteroom', {roomName: this.props.room})
+    axios.delete('https://server.aktlist.com/api/deleteroom', {roomName: this.props.room})
     .then(res => {
       socket.emit('to-home', {room: this.props.room})
     })

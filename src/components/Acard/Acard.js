@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
 import io from 'socket.io-client';
 import {Redirect} from 'react-router-dom'
 
-const socket = io.connect('http://138.68.13.146:3020')
+const socket = io.connect('https://server.aktlist.com')
 
 class Acard extends Component {
     constructor(){
@@ -39,7 +39,7 @@ class Acard extends Component {
 
         
         if(this.props.aCards.length < 5){
-            axios.post('http://138.68.13.146:3020/api/getacard', {numOfCards: 5 - this.props.aCards.length }).then(results => {
+            axios.post('https://server.aktlist.com/api/getacard', {numOfCards: 5 - this.props.aCards.length }).then(results => {
             
                 let tempArray = this.props.aCards.slice(0).concat(results.data)
                 this.props.storeACard(tempArray);
