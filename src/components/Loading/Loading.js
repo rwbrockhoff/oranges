@@ -59,6 +59,8 @@ class Loading extends Component {
     }
 
     async componentDidMount(){
+        console.log(this.props.room, 'room')
+        socket.emit('join-room-generic', {room:this.props.room})
         await this.setState({propsReadyPlayers: this.props.readyPlayers})
         let tempArray = []
         this.props.users.map((e,i) => {
