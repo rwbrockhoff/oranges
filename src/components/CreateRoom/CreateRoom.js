@@ -9,7 +9,7 @@ import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
 import swal from 'sweetalert2'
 
-const socket = io.connect('http://localhost:3020')
+const socket = io.connect('http://138.68.13.146:3020')
 
 class CreateRoom extends Component {
     constructor(){
@@ -30,10 +30,10 @@ class CreateRoom extends Component {
 
     createGame(){
       this.buttonAudio.play()
-      axios.get(`/api/checkroom/${this.state.input}`)
+      axios.get(`http://138.68.13.146:3020/api/checkroom/${this.state.input}`)
       .then(res => {
         if(!res.data[0]){
-          axios.post('/api/addroom', {room: this.state.input})
+          axios.post('http://138.68.13.146:3020/api/addroom', {room: this.state.input})
           .then(res =>{
             socket.emit('join-room', {room: this.state.input})
             this.props.addRoom({room: this.state.input})

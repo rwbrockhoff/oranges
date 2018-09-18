@@ -11,7 +11,7 @@ import Speaker from '../Speaker/Speaker'
 import { Textfit } from 'react-textfit'
 import swal from 'sweetalert2'
 
-const socket = io.connect('http://localhost:3020')
+const socket = io.connect('http://138.68.13.146:3020')
 
 class NewGames extends Component {
     constructor(){
