@@ -34,6 +34,10 @@ class Pending extends Component {
                 toWaiting: true
             })
         })
+
+        socket.on('getQCard', data => {
+            this.props.updateQCard(data.qCard)
+        })
     }
     componentDidMount(){
         socket.emit('join-room-generic', {room:this.props.room})
