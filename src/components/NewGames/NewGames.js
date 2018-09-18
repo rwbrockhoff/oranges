@@ -9,6 +9,7 @@ import { notDeepEqual } from 'assert';
 import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
 import { Textfit } from 'react-textfit'
+import swal from 'sweetalert2'
 
 const socket = io.connect('http://localhost:3020')
 
@@ -90,7 +91,10 @@ class NewGames extends Component {
         this.props.storeUser({user: this.state.input, userPic: `https://api.adorable.io/avatars/50/${this.state.pictureInput}.png`, judge: false, score: 0})
         this.setState({userNameSubmit: true})
       } else {
-        alert('already used ya idiot')
+        swal({
+          type: 'error',
+          text: "Looks like that name is already taken!",
+        })
       }
     }
 
