@@ -132,7 +132,7 @@ class Endgame extends Component {
         <button onClick={()=>this.newGame()} className="green">New Game</button>
         <button onClick={()=>this.toHome()}className="green">Exit</button>
         </div>
-       : <button onClick={()=>this.nextRound()} className="green">Next Round</button>}
+       : <button onClick={()=>this.nextRound()} className="green thinner-button">Next Round</button>}
        {this.state.nextRound ? <Redirect to="/Game"/> : ''}
        {this.state.toHome ? <Redirect to="/home"/> : ''}
       </div>

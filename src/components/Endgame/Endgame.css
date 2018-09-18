@@ -65,3 +65,8 @@ img.userEndImage{
     right: 15%;
 }
 
+.thinner-button{
+    max-width: 300px;
+    border: none;
+}
+
