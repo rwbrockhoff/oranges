@@ -9,7 +9,7 @@ import buttonClick from '../Music/Sounds/buttonClick.mp3'
 import Speaker from '../Speaker/Speaker'
 import swal from 'sweetalert2'
 
-const socket = io.connect('http://localhost:3020')
+const socket = io.connect('http://138.68.13.146:3020')
 
 class JoinGame extends Component {
     constructor(){
@@ -24,7 +24,7 @@ class JoinGame extends Component {
 
     joinGame(){
       this.buttonAudio.play()
-      axios.get(`/api/checkroom/${this.state.input}`)
+      axios.get(`http://138.68.13.146:3020/api/checkroom/${this.state.input}`)
       .then(res => {
         if(res.data[0] && res.data[0].open === true){
           socket.emit('join-room', {room: this.state.input})

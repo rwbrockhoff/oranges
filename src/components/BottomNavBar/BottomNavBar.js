@@ -5,7 +5,7 @@ import {storeUser, addPlayer} from '../../ducks/reducer'
 import {Link} from 'react-router-dom'
 import io from 'socket.io-client'
 
-const socket = io.connect('http://localhost:3020')
+const socket = io.connect('http://138.68.13.146:3020')
 
 class BottomNavBar extends Component {
   constructor(){

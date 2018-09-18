@@ -11,7 +11,7 @@ import {addPlayer, setJudge} from '../../ducks/reducer'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 
-const socket = io.connect('http://localhost:3020')
+const socket = io.connect('http://138.68.13.146:3020')
 
 
 const root = css`
@@ -71,7 +71,7 @@ class Loading extends Component {
         })
         this.setState({waitingPlayers: tempArray})
         if(this.props.readyPlayers.length === this.props.users.length){
-            axios.put('/api/lockroom', {roomName:this.props.room})
+            axios.put('http://138.68.13.146:3020/api/lockroom', {roomName:this.props.room})
             .then(
                 this.setState({
                     waiting: false
