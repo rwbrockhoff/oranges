@@ -52,6 +52,10 @@ class Loading extends Component {
             socket.emit('readyPlayers-array', {players: this.props.readyPlayers, room: this.props.room})
           })
 
+          socket.on('getQCard', data => {
+            this.props.updateQCard(data.qCard)
+        })
+
     }
 
     async componentDidMount(){
