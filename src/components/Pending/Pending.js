@@ -5,7 +5,7 @@ import { css } from 'react-emotion';
 import { PacmanLoader } from 'react-spinners';
 import io from 'socket.io-client'
 import {Redirect} from 'react-router-dom'
-import {addPlayer, addWinningCard} from '../../ducks/reducer'
+import {addPlayer, addWinningCard, updateQCard} from '../../ducks/reducer'
 
 const override2 = css`
     display: block;
@@ -96,4 +96,4 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps, {addPlayer, addWinningCard})(Pending)
+export default connect(mapStateToProps, {addPlayer, addWinningCard, updateQCard})(Pending)
