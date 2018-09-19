@@ -135,7 +135,7 @@ button.green:hover {
 .image-area {
   height: 75%;
   width: 100%;
-  background-color: skyblue;
+  background: transparent;
   overflow: hidden;
   position: absolute;
   z-index: 1;

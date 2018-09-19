@@ -14,7 +14,7 @@
     margin-bottom: 50px;
 }
 .Qcard {
-    background-color: skyblue;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -22,10 +22,16 @@
 
 h1 {
     font-size: 1.5em;
+    font-weight: 600;
 }
 
 h3 {
     margin-top: 20px;
     font-size: 1.3em;
     line-height: 1.5em;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
 }

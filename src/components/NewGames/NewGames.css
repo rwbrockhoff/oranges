@@ -146,21 +146,22 @@ div.userbox {
 div.userbubble {
     width: 80vw;
     height: 6.5vh;
-    padding: 5px 5px;
+    padding: 2px 5px;
     background: white;
     color: black;
     font-family: 'Open Sans';
     font-size: 1.5em;
     font-weight: 600;
     border-radius: 10px;
-    box-shadow: 10px 10px 74px -9px rgba(0,0,0,0.60);
+    box-shadow: 10px 10px 74px -9px rgba(0,0,0,0.40);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow-x: scroll;
-    overflow-y: hidden;
+    overflow-y: visible;
     margin: 10px;
     position: relative;
+    z-index: 0;
 }
 
 img.userImage{
@@ -168,11 +169,14 @@ img.userImage{
     width: 38px;
     height: 38px;
     z-index: 100;
+    
+    
 }
 .image-div{
     width: 100%;
     height: 100%;
     z-index: 100;
+    position: absolute;
 }
 .image-div:before{
     content: '';
@@ -193,6 +197,7 @@ img.userImage{
     position: absolute;
     left: 5%;
     top: 15%;
+    z-index: 111;
     
 }
 .stem-new {
@@ -240,3 +245,7 @@ img.userImage{
 }
 
 
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
+}
