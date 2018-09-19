@@ -31,6 +31,13 @@
     overflow-y: scroll;
     
 }
+
+#Acards:hover {
+    width: 150px;
+    height: 200px;
+    transition: width 1s linear;
+}
+
 #Acards h2 {
     text-decoration: none;
     font-weight: 600;
