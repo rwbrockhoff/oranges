@@ -50,6 +50,10 @@ class Home extends Component {
 
   render(props) {
     //Initiate WOW on Render
+
+    this.orangeTimer = setTimeout(function(){
+      document.getElementById('o5').id = 'o6'
+      },4000)
  
 
     return (
@@ -137,9 +141,6 @@ class Home extends Component {
                 </div>
                   </div>
                 </div>
-                {this.orangeTimer = setTimeout(function(){
-      document.getElementById('o5').id = 'o6'
-      },4000)}
       </div>
 
       </div>
