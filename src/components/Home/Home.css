@@ -16,10 +16,11 @@ div.home {
   align-items: center;
   flex-direction: column;
   /* background: linear-gradient(#FFC53A, #F97400); */
-  background: skyblue;
+  /* background: skyblue; */
   color: #ffffff;
   font-family: 'Bangers', cursive;
   overflow: hidden;
+  background: linear-gradient(#87ceeb, #00a6e8);
 }
 
 div.logo {
