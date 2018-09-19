@@ -1,27 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
 .Acard-App {
+  width: 100vw;
   max-width: 100vw;
   outline-style: none;
+  display: inline-block;
+  overflow-x: scroll;
+
 }
 .Acard {
-    background-color: skyblue;
+    background: transparent;
 }
 #Acards {
-    color: #333;
-    background-color: #5BC85B;
+    color: black;
+    background: linear-gradient(#5BC85B, rgb(21, 167, 21));
     border-radius: 20px;
+    font-family: 'Open Sans';
     width: 137px;
+    min-width: 137px;
     height: 160px;
     text-align: left;
     padding: 0px 10px;
     padding-top: 10px;
-    box-shadow: 10px 10px 93px -33px #000000bf;
+    box-shadow: 0px 18px 81px -24px rgba(0,0,0,0.27);
     outline: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin: 0px 30px;
+    overflow-y: scroll;
+    
 }
+
+#Acards:hover {
+    width: 150px;
+    height: 200px;
+    transition: width 1s linear;
+}
+
 #Acards h2 {
     text-decoration: none;
+    font-weight: 600;
 }
 
 .coverflow__text__TAisD {
@@ -35,29 +54,29 @@
 #Acards h2 {
     font-size: 16px;
     text-align: center;
-    margin-bottom: -10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
 
 }
 #Acards h4 {
     font-size: 13px;
     -o-text-overflow: ellipsis;
+   
 }
 
-
-@media only screen and  (min-width: 1100px) {
-    #Acards {
-        width: 307px;
-        height: 175px;
-        text-align: center;
-    }
-    #Acards h2 {
-        font-size: 22px;
-        text-align: center;
-        text-decoration: underline;
-    }
-    #Acards h4 {
-        font-size: 18px;
-        -o-text-overflow: ellipsis;
-    }
+div.slider {
+    height: 300px;
+    width: 100%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+   
 }
 
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
+}

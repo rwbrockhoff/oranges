@@ -22,7 +22,7 @@ class Game extends Component {
     let judge = this.props.users.filter(player => {
       return player.judge === true
     })
-    console.log(judge, 'judge')
+   
     if(judge[0].user === this.props.user.user){
       this.setState({
         judge: true
@@ -45,7 +45,7 @@ class Game extends Component {
         {this.state.judge === true ? 
         <div className="judge-div">
         <h1>You're the judge this round!</h1>
-        <FontAwesomeIcon icon={faGavel} color="#964B00" size='2x'/>
+        <i class="judge fas fa-gavel"/>
         </div>
         : ''
         }

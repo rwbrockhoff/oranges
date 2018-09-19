@@ -8,27 +8,36 @@ div.endgame {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
+    padding-top: 50px;
    
 }
 #answerCard-endgame{
-    color: #333;
-    background-color: #5BC85B;
+    color: black;
+    background: linear-gradient(#5BC85B, rgb(21, 167, 21));
     border-radius: 20px;
+    font-family: 'Open Sans';
     width: 137px;
+    min-width: 137px;
     height: 160px;
     text-align: left;
     padding: 0px 10px;
     padding-top: 10px;
-    box-shadow: 10px 10px 93px -33px #000000bf;
+    box-shadow: 0px 18px 81px -24px rgba(0,0,0,0.27);
     outline: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin: 30px 30px;
+    overflow-y: scroll;
 }
 .endgame-users{
     height: 40vh;
+    width: 100%;
     overflow-y: scroll;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 div.EndRound {
@@ -68,5 +77,6 @@ img.userEndImage{
 .thinner-button{
     max-width: 300px;
     border: none;
+    margin-bottom: 100px;
 }
 

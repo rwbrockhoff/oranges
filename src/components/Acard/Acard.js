@@ -63,8 +63,6 @@ class Acard extends Component {
         if(this.props.aCards.length === 5){
             swal({
                 title: "Submit card?",
-                text: "Do you wanna send it?",
-                type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -89,9 +87,9 @@ class Acard extends Component {
             })
         } else {
             swal({
-                title: "You little Cheat!",
+                title: "One try is all you get!",
                 type: 'error',
-                text: 'You already played a card'
+                text: 'Better luck next time.'
             })
         }
 
@@ -100,8 +98,6 @@ class Acard extends Component {
     pickWinner(card){
         swal({
             title: "Submit card?",
-            text: "Do you wanna send it?",
-            type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
@@ -124,6 +120,19 @@ class Acard extends Component {
     }
 
   render() {
+    var dragging = false;
+
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500,
+        beforeChange: () => dragging = true,
+        afterChange: () => dragging = false,
+      };
+
       let displayACards = this.props.aCards.map((e,i) => {
           return(
 
@@ -131,7 +140,7 @@ class Acard extends Component {
               role="menuitem"
               tabIndex={i}>
                 <h2>{e[0].name}</h2>
-                <br />
+            
                 <h4>{e[0].description}</h4>
                 
               </div>
@@ -142,7 +151,6 @@ class Acard extends Component {
               <div onClick={() => this.pickWinner(e.id)} key={e.id} id='Acards' role='menuitem'
               tabIndex={i}>
               <h2>{e.name}</h2>
-                <br />
                 <h4>{e.description}</h4>
               </div>
           )
@@ -165,33 +173,13 @@ class Acard extends Component {
 
     return (
       <div className='Acard-App'>
-          <StyleRoot>
-                    <Coverflow
-                        width='100%'
-                        height='100%'
-                        outline-style='none'
-                        displayQuantityOfSide={1}
-                        infiniteScroll
-                        enableHeading={true}
-                        active={0}
 
-                        media={{
-                            '@media (max-width: 900px)': {
-                                width: '411px',
-                                height: '375px',
-                                // marginTop: '330px'
-                            },
-                            '@media (min-width: 1000px)': {
-                                width: '60vw',
-                                height: '350px'
-                            }
-                        }}
-                    >
-                        {displayView()}
-                    </Coverflow>
-                </StyleRoot>
-                {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
-                {this.state.toPending ? <Redirect to="/Pending"/> : ''}
+          <div className="slider">
+                {displayView()}
+         </div>
+                    
+        {this.state.toWaiting ? <Redirect to="/End-Game"/> : ''}
+        {this.state.toPending ? <Redirect to="/Pending"/> : ''}
       </div>
     )
   }
