@@ -79,4 +79,10 @@ img.userEndImage{
     border: none;
     margin-bottom: 100px;
 }
+.endgame-buttons {
+    margin-bottom: 10vh;
+}
+.endgame-buttons > button {
+    border: none;
+}
 

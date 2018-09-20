@@ -128,7 +128,7 @@ class Endgame extends Component {
         {displayUsers}
       </div>
        {this.state.winner ? 
-        <div>
+        <div className="endgame-buttons">
         <button onClick={()=>this.newGame()} className="green">New Game</button>
         <button onClick={()=>this.toHome()}className="green">Exit</button>
         </div>
