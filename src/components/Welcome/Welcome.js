@@ -40,11 +40,12 @@ export default class Welcome extends Component{
                 <img className="logoicon" id="pointless1" src={require("../../assets/logo.png")}/>
                 <div className="welcome-content" id="pointless2">
                 <h2 className="welcome-h2">How to Play:</h2>
-                <p className="welcome-p">Get a group of people anywhere in the world. We'd suggest a minimum of 4 but do whatever you want.</p>
-                <p className="welcome-p">Have one person create a room - everyone else will join the room they create</p>
-                <p className="welcome-p">Pick a name, ready up, and play!</p>
-                <p className="welcome-p">The judge will be randomly selected and rotate each round - it's the judges job to pick the card they think goes best with the card at the top of your screen.</p>
-                <p className="welcome-p">Everyone else, submit a card you think the judge is likely to pick to rack up the points. First one to five wins! </p>
+                <p className="welcome-p">Get a group of friends from anywhere in the world. We suggest at least 4 players for maximum awesomeness.</p>
+                <p className="welcome-p">Have one person create a game, and give your game a name. Everyone else can join the game by using the same name!</p>
+                <p className="welcome-p">Gameplay is simple!</p>
+                <p className="welcome-p">Each round a player is selected to be the judge and a card appears at the top of the screen. Everyone chooses which of their five cards best fits the top card. The judge picks the one they 
+                like best, and the player who submitted that card wins the round!</p>
+                <p className="welcome-p">The judge rotates each round, and the first to 5 points wins! </p>
                 </div>
                 <button className='green welcome-button' id="pointless3" onClick={()=>this.letsPlay()}>Let's Go!</button>
                 {this.state.toHome ? <Redirect to="/home"/>: ''}

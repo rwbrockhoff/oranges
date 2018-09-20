@@ -50,7 +50,7 @@ class Endgame extends Component {
     wow.init();
     socket.emit('join-room-generic', {room:this.props.room})
     let winner = this.props.users.filter(user => {
-      return user.score === 2
+      return user.score === 5
     })
     if(winner[0]){
       this.setState({
