@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {storeUser, addPlayer} from '../../ducks/reducer'
 import {Link} from 'react-router-dom'
 import io from 'socket.io-client'
+import buttonClick from '../Music/Sounds/buttonClick.mp3'
 
 const socket = io.connect('https://server.aktlist.com')
 
@@ -15,6 +16,9 @@ class BottomNavBar extends Component {
       index: 0
       
     }
+
+    this.poppingUrl = buttonClick
+    this.poppingAudio = new Audio(this.poppingUrl)
  
   }
 
@@ -40,6 +44,8 @@ class BottomNavBar extends Component {
   }
 
   leaveRoom(){
+    this.poppingAudio.volume = 0.3
+    this.poppingAudio.play()
     let tempArr = this.props.users.slice(0)
     let filteredArr = tempArr.filter(user => {
       return user.user !== this.props.user.user

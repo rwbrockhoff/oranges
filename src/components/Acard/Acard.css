@@ -29,13 +29,14 @@
     justify-content: flex-start;
     margin: 0px 30px;
     overflow-y: scroll;
+    transition: .2s linear;
     
 }
 
 #Acards:hover {
-    width: 150px;
+    /* width: 150px; */
     height: 200px;
-    transition: width 1s linear;
+    transition: height .2s linear;
 }
 
 #Acards h2 {

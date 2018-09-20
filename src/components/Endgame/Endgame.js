@@ -96,7 +96,7 @@ class Endgame extends Component {
     var displayUsers = scoreArray.map((e,i) => {
       return(
         
-        <div className='userbubble wow fadeIn' data-wow-delay="2.5s" data-wow-duration=".5s" key={i}>
+        <div className='userbubble wow fadeIn' data-wow-delay="1s" data-wow-duration=".5s" key={i}>
         <div className="main-image-div">
           <div className="stem-new"></div>
           <div className="leaf1-new"></div>
