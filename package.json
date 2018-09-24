@@ -13,6 +13,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
+    "jest": "^23.6.0",
     "lodash": "^4.17.11",
     "massive": "^5.2.0",
     "radium": "^0.24.1",
@@ -36,7 +37,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject"
   }
 }

@@ -39,7 +39,7 @@ class Game extends Component {
     return (
       <div className="game">
 
-        <div className="Qcard wow fadeInDown" data-wow-duration="0.4s">
+        <div className="Qcard" data-wow-duration="0.4s">
           <Qcard/>
         </div>
         {this.state.judge === true ? 

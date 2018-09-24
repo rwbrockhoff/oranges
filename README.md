@@ -2,59 +2,13 @@
 
 This App is currently being developed as of September 2018. 
 
-## Getting Started
+## Technology
+Oranges to Oranges focuses on using socket.io to make an interactive game experience. We hosted our static frontend using Firebase, while hosting an external server on Digital Ocean. You can visit the repo linked towards the bottom to see our React Native integration (still in progress).
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Team
 
-### Prerequisites
+This was a two week project with 4 members with 1 team lead. Merge requests were approved by the team lead. Daily standups and "team walkthroughs" helped keep the team communicating and on task. The team pair programmed on a daily basis to avoid bugs, educate each other on socket.io, and push each other to communicate effectively. 
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
@@ -70,9 +24,9 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
-## Authors
+## Other Related Repos
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+**Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
